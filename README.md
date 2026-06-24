@@ -3,7 +3,8 @@
 ### Compression Rates
 - Logs: 3,774 lines -> 37 patterns (99.0% reduction)
 - Topology: 746 edges -> 11 flows (98.5% reduction)
-- Metrics: 507 samples -> 150 elevated (70.4% reduction)
+- Metrics: 507 samples -> 15 elevated (97.0% reduction)
+- **Total Token Reduction: 276k Tokens (Raw) -> 1100 Tokens (with straw) (99.5% reduction)**
 
 ### Test
 

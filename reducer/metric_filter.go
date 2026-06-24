@@ -9,17 +9,30 @@ var Thresholds = map[string]float64{
 }
 
 func FilterMetrics(samples []types.MetricSample) []types.MetricSample {
-	filtered := make([]types.MetricSample, 0)
+	type key struct {
+		entity string
+		metric string
+	}
+	peaks := make(map[key]types.MetricSample)
+	var order []key
 
 	for _, s := range samples {
 		threshold, known := Thresholds[s.Metric]
-		if !known {
-			filtered = append(filtered, s)
+		if known && s.Value < threshold {
 			continue
 		}
-		if s.Value >= threshold {
-			filtered = append(filtered, s)
+		k := key{s.Entity, s.Metric}
+		if _, exists := peaks[k]; !exists {
+			order = append(order, k)
+			peaks[k] = s
+		} else if s.Value > peaks[k].Value {
+			peaks[k] = s
 		}
+	}
+
+	filtered := make([]types.MetricSample, 0, len(order))
+	for _, k := range order {
+		filtered = append(filtered, peaks[k])
 	}
 
 	return filtered
