@@ -41,14 +41,14 @@ type FlowKey struct {
 }
 
 type AggregatedEdge struct {
-	Key          FlowKey
-	TotalCount   int
-	Operations   map[string]int
+	Key        FlowKey
+	TotalCount int
+	Operations map[string]int
 }
 
 type ReducedSnapshot struct {
-	Timestamp    time.Time
-	LogClusters  []LogCluster
-	Topology     map[FlowKey]AggregatedEdge
-	Metrics      []MetricSample
+	Timestamp   time.Time
+	LogClusters []LogCluster
+	Topology    map[FlowKey]AggregatedEdge
+	Metrics     []MetricSample
 }
