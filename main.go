@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
 
@@ -10,12 +11,16 @@ import (
 )
 
 func main() {
-	if len(os.Args) < 2 {
-		fmt.Fprintf(os.Stderr, "usage: %s <stream-file>\n", os.Args[0])
+	savePath := flag.String("save", "", "save markdown output to file")
+	flag.Parse()
+
+	args := flag.Args()
+	if len(args) < 1 {
+		fmt.Fprintf(os.Stderr, "usage: %s [--save <file>] <stream-file>\n", os.Args[0])
 		os.Exit(1)
 	}
 
-	snap, err := parser.ParseStream(os.Args[1])
+	snap, err := parser.ParseStream(args[0])
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "parse error: %v\n", err)
 		os.Exit(1)
@@ -26,5 +31,14 @@ func main() {
 	logs := reducer.ClusterLogs(snap.Logs)
 
 	md := renderer.Render(topo, metrics, logs)
-	fmt.Println(md)
+
+	if *savePath != "" {
+		if err := os.WriteFile(*savePath, []byte(md), 0644); err != nil {
+			fmt.Fprintf(os.Stderr, "failed to save file: %v\n", err)
+			os.Exit(1)
+		}
+		return
+	}
+
+	fmt.Print(md)
 }
