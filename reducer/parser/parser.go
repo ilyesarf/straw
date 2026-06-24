@@ -7,6 +7,8 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"straw/types"
 )
 
 type streamLogs struct {
@@ -50,45 +52,18 @@ type streamEvents struct {
 	} `json:"errors"`
 }
 
-type LogLine struct {
-	Timestamp time.Time
-	Component string
-	Message   string
-}
-
-type MetricSample struct {
-	Entity string
-	Metric string
-	Value  float64
-	//Threshold float64
-}
-
-type TopologyEdge struct {
-	Source   string
-	Dest     string
-	Protocol string
-	Metadata map[string]string
-}
-
-type RawSnapshot struct {
-	Timestamp time.Time
-	Logs      []LogLine
-	Metrics   []MetricSample
-	Topology  []TopologyEdge
-}
-
-func ParseStream(filepath string) (*RawSnapshot, error) {
+func ParseStream(filepath string) (*types.RawSnapshot, error) {
 	file, err := os.Open(filepath)
 	if err != nil {
 		return nil, err
 	}
 	defer file.Close()
 
-	snapshot := &RawSnapshot{
+	snapshot := &types.RawSnapshot{
 		Timestamp: time.Now(),
-		Logs:      []LogLine{},
-		Metrics:   []MetricSample{},
-		Topology:  []TopologyEdge{},
+		Logs:      []types.LogLine{},
+		Metrics:   []types.MetricSample{},
+		Topology:  []types.TopologyEdge{},
 	}
 
 	scanner := bufio.NewScanner(file)
@@ -110,7 +85,7 @@ func ParseStream(filepath string) (*RawSnapshot, error) {
 				var l streamLogs
 				if err := json.Unmarshal([]byte(dataRaw), &l); err == nil {
 					for _, entry := range l.Entries {
-						snapshot.Logs = append(snapshot.Logs, LogLine{
+						snapshot.Logs = append(snapshot.Logs, types.LogLine{
 							Component: entry.Service,
 							Message:   entry.Message,
 						})
@@ -120,7 +95,7 @@ func ParseStream(filepath string) (*RawSnapshot, error) {
 				var m streamMetrics
 				if err := json.Unmarshal([]byte(dataRaw), &m); err == nil {
 					for _, hm := range m.HostMetrics {
-						snapshot.Metrics = append(snapshot.Metrics, MetricSample{
+						snapshot.Metrics = append(snapshot.Metrics, types.MetricSample{
 							Entity: hm.Node,
 							Metric: "cpu_used_pct",
 							Value:  hm.CpuUsedPct,
@@ -128,7 +103,7 @@ func ParseStream(filepath string) (*RawSnapshot, error) {
 					}
 					for _, cr := range m.ContainerResources {
 						rx, _ := strconv.ParseFloat(cr.NetRxBytes, 64)
-						snapshot.Metrics = append(snapshot.Metrics, MetricSample{
+						snapshot.Metrics = append(snapshot.Metrics, types.MetricSample{
 							Entity: cr.Container,
 							Metric: "net_rx_bytes",
 							Value:  rx,
@@ -143,7 +118,7 @@ func ParseStream(filepath string) (*RawSnapshot, error) {
 						if dest == "" {
 							dest = "external" // catch missing destinations
 						}
-						snapshot.Topology = append(snapshot.Topology, TopologyEdge{
+						snapshot.Topology = append(snapshot.Topology, types.TopologyEdge{
 							Source:   ev.SrcService,
 							Dest:     dest,
 							Protocol: ev.Protocol,
