@@ -12,7 +12,6 @@ type MetricSample struct {
 	Entity string
 	Metric string
 	Value  float64
-	//Threshold float64
 }
 
 type TopologyEdge struct {
@@ -27,4 +26,29 @@ type RawSnapshot struct {
 	Logs      []LogLine
 	Metrics   []MetricSample
 	Topology  []TopologyEdge
+}
+
+type LogCluster struct {
+	Pattern string
+	Count   int
+	Sample  string
+}
+
+type FlowKey struct {
+	Src      string
+	Dst      string
+	Protocol string
+}
+
+type AggregatedEdge struct {
+	Key          FlowKey
+	TotalCount   int
+	Operations   map[string]int
+}
+
+type ReducedSnapshot struct {
+	Timestamp    time.Time
+	LogClusters  []LogCluster
+	Topology     map[FlowKey]AggregatedEdge
+	Metrics      []MetricSample
 }
