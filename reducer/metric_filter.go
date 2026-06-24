@@ -1,6 +1,6 @@
 package reducer
 
-import "straw/types"
+import "github.com/ilyesrf/straw/types"
 
 var Thresholds = map[string]float64{
 	"cpu_used_pct": 80.0,

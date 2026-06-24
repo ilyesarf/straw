@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"straw/types"
+	"github.com/ilyesrf/straw/types"
 )
 
 func Render(topo map[types.FlowKey]types.AggregatedEdge, metrics []types.MetricSample, logs []types.LogCluster) string {

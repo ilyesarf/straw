@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"straw/types"
+	"github.com/ilyesrf/straw/types"
 )
 
 type streamLogs struct {

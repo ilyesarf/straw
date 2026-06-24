@@ -1,6 +1,6 @@
 package reducer
 
-import "straw/types"
+import "github.com/ilyesrf/straw/types"
 
 func MaskToken(token string) string {
 	if len(token) == 0 {

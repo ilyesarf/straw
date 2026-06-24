@@ -3,7 +3,7 @@ package reducer
 import (
 	"strconv"
 
-	"straw/types"
+	"github.com/ilyesrf/straw/types"
 )
 
 func AggregateTopology(edges []types.TopologyEdge) map[types.FlowKey]types.AggregatedEdge {

@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"os"
 
-	"straw/reducer"
-	"straw/reducer/parser"
-	"straw/renderer"
+	"github.com/ilyesrf/straw/reducer"
+	"github.com/ilyesrf/straw/reducer/parser"
+	"github.com/ilyesrf/straw/renderer"
 )
 
 func main() {
