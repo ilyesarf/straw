@@ -52,3 +52,16 @@ type ReducedSnapshot struct {
 	Topology    map[FlowKey]AggregatedEdge
 	Metrics     []MetricSample
 }
+
+type SnapshotDiff struct {
+	BaseTimestamp    time.Time
+	CompareTimestamp time.Time
+
+	NewLogClusters []LogCluster
+
+	AddedEdges   []AggregatedEdge
+	RemovedEdges []AggregatedEdge
+
+	AddedMetrics    []MetricSample
+	ResolvedMetrics []MetricSample
+}
