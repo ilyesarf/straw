@@ -26,11 +26,8 @@ func main() {
 		os.Exit(1)
 	}
 
-	topo := reducer.AggregateTopology(snap.Topology)
-	metrics := reducer.FilterMetrics(snap.Metrics)
-	logs := reducer.ClusterLogs(snap.Logs)
-
-	md := renderer.Render(topo, metrics, logs)
+	reduced := reducer.Reduce(snap)
+	md := renderer.Render(reduced)
 
 	if *savePath != "" {
 		if err := os.WriteFile(*savePath, []byte(md), 0644); err != nil {
