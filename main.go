@@ -26,7 +26,12 @@ func main() {
 		os.Exit(1)
 	}
 
-	reduced := reducer.Reduce(snap)
+	thresholds := map[string]float64{
+		"cpu_used_pct": 80.0,
+		"net_rx_bytes": 500_000_000,
+		"net_tx_bytes": 500_000_000,
+	}
+	reduced := reducer.Reduce(snap, thresholds)
 	md := renderer.Render(reduced)
 
 	if *savePath != "" {

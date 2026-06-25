@@ -2,13 +2,7 @@ package reducer
 
 import "github.com/ilyesrf/straw/types"
 
-var Thresholds = map[string]float64{
-	"cpu_used_pct": 80.0,
-	"net_rx_bytes": 500_000_000,
-	"net_tx_bytes": 500_000_000,
-}
-
-func FilterMetrics(samples []types.MetricSample) []types.MetricSample {
+func FilterMetrics(samples []types.MetricSample, thresholds map[string]float64) []types.MetricSample {
 	type key struct {
 		entity string
 		metric string
@@ -17,7 +11,7 @@ func FilterMetrics(samples []types.MetricSample) []types.MetricSample {
 	var order []key
 
 	for _, s := range samples {
-		threshold, known := Thresholds[s.Metric]
+		threshold, known := thresholds[s.Metric]
 		if known && s.Value < threshold {
 			continue
 		}
