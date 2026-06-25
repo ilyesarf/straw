@@ -6,10 +6,10 @@ import (
 	"os"
 	"time"
 
-	"github.com/ilyesrf/straw/reducer"
-	"github.com/ilyesrf/straw/reducer/parser"
-	"github.com/ilyesrf/straw/renderer"
-	"github.com/ilyesrf/straw/types"
+	"github.com/ilyesarf/straw/reducer"
+	"github.com/ilyesarf/straw/reducer/parser"
+	"github.com/ilyesarf/straw/renderer"
+	"github.com/ilyesarf/straw/types"
 )
 
 func main() {

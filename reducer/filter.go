@@ -3,7 +3,7 @@ package reducer
 import (
 	"strings"
 
-	"github.com/ilyesrf/straw/types"
+	"github.com/ilyesarf/straw/types"
 )
 
 func FilterSnapshot(snap *types.RawSnapshot, target string) *types.RawSnapshot {

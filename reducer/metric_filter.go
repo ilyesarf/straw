@@ -1,6 +1,6 @@
 package reducer
 
-import "github.com/ilyesrf/straw/types"
+import "github.com/ilyesarf/straw/types"
 
 func FilterMetrics(samples []types.MetricSample, thresholds map[string]float64) []types.MetricSample {
 	type key struct {

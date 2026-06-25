@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/ilyesrf/straw/types"
+	"github.com/ilyesarf/straw/types"
 )
 
 func Render(snap types.ReducedSnapshot) string {

@@ -1,6 +1,6 @@
 package reducer
 
-import "github.com/ilyesrf/straw/types"
+import "github.com/ilyesarf/straw/types"
 
 func Reduce(raw *types.RawSnapshot, thresholds map[string]float64) types.ReducedSnapshot {
 	return types.ReducedSnapshot{
