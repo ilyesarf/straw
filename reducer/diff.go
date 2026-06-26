@@ -57,5 +57,16 @@ func Diff(base, compare types.ReducedSnapshot) types.SnapshotDiff {
 		}
 	}
 
+	//k8s event clusters diff
+	baseK8s := make(map[string]bool)
+	for _, c := range base.K8sEventClusters {
+		baseK8s[c.Type+"|"+c.Reason] = true
+	}
+	for _, c := range compare.K8sEventClusters {
+		if !baseK8s[c.Type+"|"+c.Reason] {
+			diff.NewK8sEventClusters = append(diff.NewK8sEventClusters, c)
+		}
+	}
+
 	return diff
 }

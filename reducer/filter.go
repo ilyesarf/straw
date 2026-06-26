@@ -33,5 +33,11 @@ func FilterSnapshot(snap *types.RawSnapshot, target string) *types.RawSnapshot {
 		}
 	}
 
+	for _, e := range snap.K8sEvents {
+		if strings.Contains(e.InvolvedName, target) {
+			filtered.K8sEvents = append(filtered.K8sEvents, e)
+		}
+	}
+
 	return filtered
 }

@@ -30,6 +30,14 @@ func Render(snap types.ReducedSnapshot) string {
 			c.Count, c.Pattern))
 	}
 
+	if len(snap.K8sEventClusters) > 0 {
+		sb.WriteString("\n=== K8S EVENTS ===\n")
+		for _, c := range snap.K8sEventClusters {
+			sb.WriteString(fmt.Sprintf("- count:%d | [%s] %s\n",
+				c.Count, c.Type, c.Reason))
+		}
+	}
+
 	return sb.String()
 }
 
@@ -60,6 +68,13 @@ func RenderDiff(diff types.SnapshotDiff) string {
 	sb.WriteString(fmt.Sprintf("  Resolved: %d\n", len(diff.ResolvedMetrics)))
 	for _, m := range diff.ResolvedMetrics {
 		sb.WriteString(fmt.Sprintf("    - %s | %s: %.2f\n", m.Entity, m.Metric, m.Value))
+	}
+
+	if len(diff.NewK8sEventClusters) > 0 {
+		sb.WriteString(fmt.Sprintf("\nNew K8s Event Patterns: %d\n", len(diff.NewK8sEventClusters)))
+		for _, c := range diff.NewK8sEventClusters {
+			sb.WriteString(fmt.Sprintf("  + count:%d | [%s] %s\n", c.Count, c.Type, c.Reason))
+		}
 	}
 
 	return sb.String()

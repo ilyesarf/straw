@@ -21,11 +21,29 @@ type TopologyEdge struct {
 	Metadata map[string]string
 }
 
+type K8sEvent struct {
+	Timestamp    time.Time
+	Namespace    string
+	Type         string // "Normal" or "Warning"
+	Reason       string
+	Message      string
+	InvolvedKind string
+	InvolvedName string
+}
+
+type K8sEventCluster struct {
+	Type   string
+	Reason string
+	Count  int
+	Sample string
+}
+
 type RawSnapshot struct {
 	Timestamp time.Time
 	Logs      []LogLine
 	Metrics   []MetricSample
 	Topology  []TopologyEdge
+	K8sEvents []K8sEvent
 }
 
 type LogCluster struct {
@@ -47,10 +65,11 @@ type AggregatedEdge struct {
 }
 
 type ReducedSnapshot struct {
-	Timestamp   time.Time
-	LogClusters []LogCluster
-	Topology    map[FlowKey]AggregatedEdge
-	Metrics     []MetricSample
+	Timestamp        time.Time
+	LogClusters      []LogCluster
+	Topology         map[FlowKey]AggregatedEdge
+	Metrics          []MetricSample
+	K8sEventClusters []K8sEventCluster
 }
 
 type SnapshotDiff struct {
@@ -64,4 +83,6 @@ type SnapshotDiff struct {
 
 	AddedMetrics    []MetricSample
 	ResolvedMetrics []MetricSample
+
+	NewK8sEventClusters []K8sEventCluster
 }
