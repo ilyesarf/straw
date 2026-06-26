@@ -11,8 +11,16 @@ func FilterMetrics(samples []types.MetricSample, thresholds map[string]float64) 
 	var order []key
 
 	for _, s := range samples {
+		// Zero is never elevated regardless of threshold.
+		if s.Value == 0 {
+			continue
+		}
 		threshold, known := thresholds[s.Metric]
-		if known && s.Value < threshold {
+		// Unknown metric: no baseline to compare against, not elevated.
+		if !known {
+			continue
+		}
+		if s.Value < threshold {
 			continue
 		}
 		k := key{s.Entity, s.Metric}
