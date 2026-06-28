@@ -72,6 +72,32 @@ type ReducedSnapshot struct {
 	K8sEventClusters []K8sEventCluster
 }
 
+type K8sPod struct {
+	Name         string
+	Namespace    string
+	Node         string
+	Phase        string
+	RestartCount int32
+	CPURequestM  int64
+	MemRequestB  int64
+	MemLimitB    int64
+}
+
+type K8sPodEntry struct {
+	Name         string
+	Namespace    string
+	Node         string
+	Phase        string
+	RestartCount int32
+	MemLimitB    int64
+}
+
+type K8sPodSummary struct {
+	Total     int
+	Running   int
+	Unhealthy []K8sPodEntry
+}
+
 type SnapshotDiff struct {
 	BaseTimestamp    time.Time
 	CompareTimestamp time.Time

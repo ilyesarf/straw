@@ -41,6 +41,27 @@ func Render(snap types.ReducedSnapshot) string {
 	return sb.String()
 }
 
+func RenderPods(summary types.K8sPodSummary) string {
+	var sb strings.Builder
+
+	sb.WriteString("=== K8S PODS ===\n")
+	sb.WriteString(fmt.Sprintf("total:%d running:%d unhealthy:%d\n",
+		summary.Total, summary.Running, len(summary.Unhealthy)))
+
+	for _, p := range summary.Unhealthy {
+		memMi := p.MemLimitB / (1024 * 1024)
+		if memMi > 0 {
+			sb.WriteString(fmt.Sprintf("- %s [%s/%s] phase:%s restarts:%d memlimit:%dMi\n",
+				p.Name, p.Namespace, p.Node, p.Phase, p.RestartCount, memMi))
+		} else {
+			sb.WriteString(fmt.Sprintf("- %s [%s/%s] phase:%s restarts:%d\n",
+				p.Name, p.Namespace, p.Node, p.Phase, p.RestartCount))
+		}
+	}
+
+	return sb.String()
+}
+
 func RenderDiff(diff types.SnapshotDiff) string {
 	var sb strings.Builder
 
