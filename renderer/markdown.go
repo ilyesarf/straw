@@ -41,6 +41,16 @@ func Render(snap types.ReducedSnapshot) string {
 	return sb.String()
 }
 
+func RenderMetrics(summary types.MetricSummary) string {
+	var sb strings.Builder
+	sb.WriteString("=== METRICS ===\n")
+	for _, e := range summary.Entries {
+		sb.WriteString(fmt.Sprintf("- %s -> %s [%s] reqs:%d errs:%d err%%:%.2f lat_avg:%.2fms lat_max:%.2fms\n",
+			e.Src, e.Dst, e.Protocol, e.Reqs, e.Errs, e.ErrPct, e.LatAvgMs, e.LatMaxMs))
+	}
+	return sb.String()
+}
+
 func RenderPods(summary types.K8sPodSummary) string {
 	var sb strings.Builder
 

@@ -72,6 +72,31 @@ type ReducedSnapshot struct {
 	K8sEventClusters []K8sEventCluster
 }
 
+type MetricRow struct {
+	Src      string
+	Dst      string
+	Protocol string
+	ReqCount uint64
+	ErrCount uint64
+	LatSumNs int64
+	LatMaxNs int64
+}
+
+type MetricEntry struct {
+	Src      string
+	Dst      string
+	Protocol string
+	Reqs     uint64
+	Errs     uint64
+	ErrPct   float64
+	LatAvgMs float64
+	LatMaxMs float64
+}
+
+type MetricSummary struct {
+	Entries []MetricEntry
+}
+
 type K8sPod struct {
 	Name         string
 	Namespace    string
