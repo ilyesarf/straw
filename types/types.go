@@ -154,6 +154,24 @@ type K8sPodSummary struct {
 	Unhealthy []K8sPodEntry
 }
 
+type PodDiff struct {
+	Name         string
+	Namespace    string
+	Change       string // "added", "removed", "phase_changed", "restarts_increased"
+	OldPhase     string
+	NewPhase     string
+	OldRestarts  int32
+	NewRestarts  int32
+}
+
+type NodeDiff struct {
+	Name      string
+	Change    string // "added", "removed", "ready_changed", "pressure_changed"
+	OldReady  bool
+	NewReady  bool
+	Detail    string
+}
+
 type SnapshotDiff struct {
 	BaseTimestamp    time.Time
 	CompareTimestamp time.Time
@@ -167,4 +185,7 @@ type SnapshotDiff struct {
 	ResolvedMetrics []MetricSample
 
 	NewK8sEventClusters []K8sEventCluster
+
+	PodDiffs  []PodDiff
+	NodeDiffs []NodeDiff
 }

@@ -146,5 +146,45 @@ func RenderDiff(diff types.SnapshotDiff) string {
 		}
 	}
 
+	if len(diff.PodDiffs) > 0 {
+		sb.WriteString(fmt.Sprintf("\nPod Changes: %d\n", len(diff.PodDiffs)))
+		for _, p := range diff.PodDiffs {
+			switch p.Change {
+			case "added":
+				sb.WriteString(fmt.Sprintf("  + %s/%s [%s] restarts:%d\n", p.Namespace, p.Name, p.NewPhase, p.NewRestarts))
+			case "removed":
+				sb.WriteString(fmt.Sprintf("  - %s/%s (was %s)\n", p.Namespace, p.Name, p.OldPhase))
+			case "phase_changed":
+				sb.WriteString(fmt.Sprintf("  ~ %s/%s phase:%s->%s\n", p.Namespace, p.Name, p.OldPhase, p.NewPhase))
+			case "restarts_increased":
+				sb.WriteString(fmt.Sprintf("  ~ %s/%s restarts:%d->%d\n", p.Namespace, p.Name, p.OldRestarts, p.NewRestarts))
+			}
+		}
+	}
+
+	if len(diff.NodeDiffs) > 0 {
+		sb.WriteString(fmt.Sprintf("\nNode Changes: %d\n", len(diff.NodeDiffs)))
+		for _, n := range diff.NodeDiffs {
+			switch n.Change {
+			case "added":
+				ready := "Ready"
+				if !n.NewReady {
+					ready = "NotReady"
+				}
+				sb.WriteString(fmt.Sprintf("  + %s [%s]\n", n.Name, ready))
+			case "removed":
+				sb.WriteString(fmt.Sprintf("  - %s\n", n.Name))
+			case "ready_changed":
+				from, to := "Ready", "NotReady"
+				if n.NewReady {
+					from, to = "NotReady", "Ready"
+				}
+				sb.WriteString(fmt.Sprintf("  ~ %s %s->%s\n", n.Name, from, to))
+			case "pressure_changed":
+				sb.WriteString(fmt.Sprintf("  ~ %s %s\n", n.Name, n.Detail))
+			}
+		}
+	}
+
 	return sb.String()
 }
