@@ -10,41 +10,49 @@ import (
 func Render(snap types.ReducedSnapshot) string {
 	var sb strings.Builder
 
-	sb.WriteString("=== TRAFFIC TOPOLOGY ===\n")
-	for _, edge := range snap.Topology {
-		sb.WriteString(fmt.Sprintf("- %s -> %s [%s, reqs:%d]\n",
-			edge.Key.Src, edge.Key.Dst, edge.Key.Protocol, edge.TotalCount))
+	if len(snap.Topology) > 0 {
+		sb.WriteString("=== TRAFFIC TOPOLOGY ===\n")
+		for _, edge := range snap.Topology {
+			sb.WriteString(fmt.Sprintf("- %s -> %s [%s, reqs:%d]\n",
+				edge.Key.Src, edge.Key.Dst, edge.Key.Protocol, edge.TotalCount))
+		}
+		sb.WriteString("\n")
 	}
-	sb.WriteString("\n")
 
-	sb.WriteString("=== RESOURCE SATURATION ===\n")
-	for _, m := range snap.Metrics {
-		sb.WriteString(fmt.Sprintf("- %s | %s: %.2f [ELEVATED]\n",
-			m.Entity, m.Metric, m.Value))
+	if len(snap.Metrics) > 0 {
+		sb.WriteString("=== RESOURCE SATURATION ===\n")
+		for _, m := range snap.Metrics {
+			sb.WriteString(fmt.Sprintf("- %s | %s: %.2f [ELEVATED]\n",
+				m.Entity, m.Metric, m.Value))
+		}
+		sb.WriteString("\n")
 	}
-	sb.WriteString("\n")
 
-	sb.WriteString("=== LOG SIGNATURES ===\n")
-	for _, c := range snap.LogClusters {
-		sb.WriteString(fmt.Sprintf("- count:%d | %s\n",
-			c.Count, c.Pattern))
+	if len(snap.LogClusters) > 0 {
+		sb.WriteString("=== LOG SIGNATURES ===\n")
+		for _, c := range snap.LogClusters {
+			sb.WriteString(fmt.Sprintf("- count:%d | %s\n",
+				c.Count, c.Pattern))
+		}
+		sb.WriteString("\n")
 	}
 
 	if len(snap.K8sEventClusters) > 0 {
-		sb.WriteString("\n=== K8S EVENTS ===\n")
+		sb.WriteString("=== K8S EVENTS ===\n")
 		for _, c := range snap.K8sEventClusters {
 			sb.WriteString(fmt.Sprintf("- count:%d | [%s] %s\n",
 				c.Count, c.Type, c.Reason))
 		}
+		sb.WriteString("\n")
 	}
 
 	if snap.PodSummary != nil {
-		sb.WriteString("\n")
 		sb.WriteString(RenderPods(*snap.PodSummary))
+		sb.WriteString("\n")
 	}
 
 	if len(snap.Nodes) > 0 {
-		sb.WriteString("\n=== K8S NODES ===\n")
+		sb.WriteString("=== K8S NODES ===\n")
 		for _, n := range snap.Nodes {
 			status := "Ready"
 			if !n.Ready {
@@ -64,7 +72,11 @@ func Render(snap types.ReducedSnapshot) string {
 		}
 	}
 
-	return sb.String()
+	if sb.Len() == 0 {
+		return "No data."
+	}
+
+	return strings.TrimRight(sb.String(), "\n") + "\n"
 }
 
 func RenderMetrics(summary types.MetricSummary) string {
