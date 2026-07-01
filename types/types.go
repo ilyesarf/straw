@@ -47,6 +47,9 @@ type K8sNode struct {
 	MemCapacityB    int64
 	CPUAllocatableM int64
 	MemAllocatableB int64
+	CPUUsedPct      float64
+	MemTotalB       uint64
+	MemAvailableB   uint64
 }
 
 type RawSnapshot struct {
@@ -78,14 +81,16 @@ type AggregatedEdge struct {
 }
 
 type K8sNodeEntry struct {
-	Name         string
-	Ready        bool
-	MemPressure  bool
-	DiskPressure bool
-	CPUCapacityM int64
-	MemAllocM    int64
-	MemCapacityB int64
-	MemAllocB    int64
+	Name            string
+	Ready           bool
+	MemPressure     bool
+	DiskPressure    bool
+	CPUCapacityM    int64
+	CPUAllocatableM int64
+	MemCapacityB    int64
+	MemAllocatableB int64
+	CPUUsedPct      float64
+	MemUsedPct      float64
 }
 
 type ReducedSnapshot struct {
