@@ -38,6 +38,32 @@ func Render(snap types.ReducedSnapshot) string {
 		}
 	}
 
+	if snap.PodSummary != nil {
+		sb.WriteString("\n")
+		sb.WriteString(RenderPods(*snap.PodSummary))
+	}
+
+	if len(snap.Nodes) > 0 {
+		sb.WriteString("\n=== K8S NODES ===\n")
+		for _, n := range snap.Nodes {
+			status := "Ready"
+			if !n.Ready {
+				status = "NotReady"
+			}
+			flags := ""
+			if n.MemPressure {
+				flags += " MemPressure"
+			}
+			if n.DiskPressure {
+				flags += " DiskPressure"
+			}
+			sb.WriteString(fmt.Sprintf("- %s [%s%s] cpu:%d/%dm mem:%dMi/%dMi\n",
+				n.Name, status, flags,
+				n.MemAllocM, n.CPUCapacityM,
+				n.MemAllocB/(1024*1024), n.MemCapacityB/(1024*1024)))
+		}
+	}
+
 	return sb.String()
 }
 

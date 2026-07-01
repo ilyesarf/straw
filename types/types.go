@@ -38,12 +38,25 @@ type K8sEventCluster struct {
 	Sample string
 }
 
+type K8sNode struct {
+	Name            string
+	Ready           bool
+	MemPressure     bool
+	DiskPressure    bool
+	CPUCapacityM    int64
+	MemCapacityB    int64
+	CPUAllocatableM int64
+	MemAllocatableB int64
+}
+
 type RawSnapshot struct {
 	Timestamp time.Time
 	Logs      []LogLine
 	Metrics   []MetricSample
 	Topology  []TopologyEdge
 	K8sEvents []K8sEvent
+	Pods      []K8sPod
+	Nodes     []K8sNode
 }
 
 type LogCluster struct {
@@ -64,12 +77,25 @@ type AggregatedEdge struct {
 	Operations map[string]int
 }
 
+type K8sNodeEntry struct {
+	Name         string
+	Ready        bool
+	MemPressure  bool
+	DiskPressure bool
+	CPUCapacityM int64
+	MemAllocM    int64
+	MemCapacityB int64
+	MemAllocB    int64
+}
+
 type ReducedSnapshot struct {
 	Timestamp        time.Time
 	LogClusters      []LogCluster
 	Topology         map[FlowKey]AggregatedEdge
 	Metrics          []MetricSample
 	K8sEventClusters []K8sEventCluster
+	PodSummary       *K8sPodSummary
+	Nodes            []K8sNodeEntry
 }
 
 type MetricRow struct {
