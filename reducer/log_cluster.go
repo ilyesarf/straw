@@ -17,6 +17,15 @@ func MaskToken(token string) string {
 			}
 			return string(first) + inner + string(last)
 		}
+		// lone dangling bracket/paren — e.g. the apache timestamp
+		// "[06/Jul/2026 15:49:19]" splits on the space into "[06/Jul/2026"
+		// and "15:49:19]", so the pair never matches within one token.
+		if first == '[' || first == '(' {
+			return string(first) + MaskToken(token[1:])
+		}
+		if last == ']' || last == ')' {
+			return MaskToken(token[:len(token)-1]) + string(last)
+		}
 	}
 
 	if looksLikeIP(token) {
@@ -35,6 +44,9 @@ func MaskToken(token string) string {
 		return "*"
 	}
 	if looksLikeDate(token) {
+		return "*"
+	}
+	if looksLikeClockTime(token) {
 		return "*"
 	}
 
@@ -231,6 +243,60 @@ func looksLikeDate(s string) bool {
 		}
 	}
 	return true
+}
+
+// matches clock times like 15:49:19 and 15:49:19,206 / 15:49:19.206206 —
+// the per-line timestamp that otherwise makes every log a unique pattern.
+func looksLikeClockTime(s string) bool {
+	// optional fractional part after ',' or '.' on the final field
+	if i := lastIndexByte(s, ','); i > 0 {
+		if !allDigits(s[i+1:]) {
+			return false
+		}
+		s = s[:i]
+	} else if i := lastIndexByte(s, '.'); i > 0 {
+		if !allDigits(s[i+1:]) {
+			return false
+		}
+		s = s[:i]
+	}
+
+	groups := 0
+	start := 0
+	for i := 0; i <= len(s); i++ {
+		if i == len(s) || s[i] == ':' {
+			if i == start {
+				return false
+			}
+			if !allDigits(s[start:i]) {
+				return false
+			}
+			groups++
+			start = i + 1
+		}
+	}
+	return groups >= 2
+}
+
+func allDigits(s string) bool {
+	if len(s) == 0 {
+		return false
+	}
+	for i := 0; i < len(s); i++ {
+		if s[i] < '0' || s[i] > '9' {
+			return false
+		}
+	}
+	return true
+}
+
+func lastIndexByte(s string, b byte) int {
+	for i := len(s) - 1; i >= 0; i-- {
+		if s[i] == b {
+			return i
+		}
+	}
+	return -1
 }
 
 func looksLikeIPCIDR(s string) bool {
