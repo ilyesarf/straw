@@ -50,6 +50,8 @@ type K8sNode struct {
 	CPUUsedPct      float64
 	MemTotalB       uint64
 	MemAvailableB   uint64
+	DiskTotalB      uint64
+	DiskAvailB      uint64
 }
 
 type RawSnapshot struct {
@@ -91,6 +93,7 @@ type K8sNodeEntry struct {
 	MemAllocatableB int64
 	CPUUsedPct      float64
 	MemUsedPct      float64
+	DiskUsedPct     float64
 }
 
 type ReducedSnapshot struct {

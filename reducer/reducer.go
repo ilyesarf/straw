@@ -21,12 +21,17 @@ func Reduce(raw *types.RawSnapshot, thresholds map[string]float64) types.Reduced
 		if n.MemTotalB > 0 {
 			memUsedPct = float64(n.MemTotalB-n.MemAvailableB) / float64(n.MemTotalB) * 100
 		}
+		var diskUsedPct float64
+		if n.DiskTotalB > 0 {
+			diskUsedPct = float64(n.DiskTotalB-n.DiskAvailB) / float64(n.DiskTotalB) * 100
+		}
 		rs.Nodes = append(rs.Nodes, types.K8sNodeEntry{
 			Name: n.Name, Ready: n.Ready,
 			MemPressure: n.MemPressure, DiskPressure: n.DiskPressure,
 			CPUCapacityM: n.CPUCapacityM, CPUAllocatableM: n.CPUAllocatableM,
 			MemCapacityB: n.MemCapacityB, MemAllocatableB: n.MemAllocatableB,
 			CPUUsedPct: n.CPUUsedPct, MemUsedPct: memUsedPct,
+			DiskUsedPct: diskUsedPct,
 		})
 	}
 

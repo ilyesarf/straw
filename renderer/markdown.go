@@ -65,9 +65,13 @@ func Render(snap types.ReducedSnapshot) string {
 			if n.DiskPressure {
 				flags += " DiskPressure"
 			}
-			sb.WriteString(fmt.Sprintf("- %s [%s%s] cpu:%.1f%% mem:%.1f%% (%dMi total)\n",
+			diskStr := ""
+			if n.DiskUsedPct > 0 {
+				diskStr = fmt.Sprintf(" disk:%.1f%%", n.DiskUsedPct)
+			}
+			sb.WriteString(fmt.Sprintf("- %s [%s%s] cpu:%.1f%% mem:%.1f%%%s (%dMi total)\n",
 				n.Name, status, flags,
-				n.CPUUsedPct, n.MemUsedPct,
+				n.CPUUsedPct, n.MemUsedPct, diskStr,
 				n.MemCapacityB/(1024*1024)))
 		}
 	}
