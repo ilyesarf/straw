@@ -224,13 +224,13 @@ event: logs
 data: {"seq":"13542", "entries":[{"tsUnixNs":"1782252401438948752", "service":"k8s_storage-provisioner_storage-provisioner_kube-system_76698ead-8d42-4476-9afd-d533867e5463_0", "containerId":"ddb0e7afa3daeed09eeb111cb1b83fa1d403f48224b04c5915fa095713327aff", "stream":"stderr", "message":"W0623 22:06:41.438746       1 warnings.go:70] v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"}]}
 
 event: k8s
-data: {"seq":"13543", "nodes":[{"name":"fret-test-m03", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252401", "action":"MODIFIED", "memPressure":false, "diskPressure":false, "diskTotalBytes":"20320481280", "diskAvailBytes":"14664695584"}]}
+data: {"seq":"13543", "nodes":[{"name":"fret-test-m03", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252401", "action":"MODIFIED"}]}
 
 event: k8s
-data: {"seq":"5226", "nodes":[{"name":"fret-test-m03", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252401", "action":"MODIFIED", "memPressure":false, "diskPressure":false, "diskTotalBytes":"20320481280", "diskAvailBytes":"14664695584"}]}
+data: {"seq":"5226", "nodes":[{"name":"fret-test-m03", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252401", "action":"MODIFIED"}]}
 
 event: k8s
-data: {"seq":"5314", "nodes":[{"name":"fret-test-m03", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252401", "action":"MODIFIED", "memPressure":false, "diskPressure":false, "diskTotalBytes":"20320481280", "diskAvailBytes":"14664695584"}]}
+data: {"seq":"5314", "nodes":[{"name":"fret-test-m03", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252401", "action":"MODIFIED"}]}
 
 : ping
 
@@ -1496,13 +1496,13 @@ event: logs
 data: {"seq":"13815", "entries":[{"tsUnixNs":"1782252490677708258", "service":"k8s_coredns_coredns-674b8bbfcf-q2nbc_kube-system_cefc4b9f-1170-4baa-b8e9-c82b4728730a_0", "containerId":"41468c8c5e174bb04465ac9947bf1f7a00e67ba4e2c220903aac5fdae6263a50", "stream":"stdout", "message":"[INFO] 10.244.1.2:40009 - 44492 \"AAAA IN redis-cache.fret-test-backend.svc.cluster.local. udp 76 false 1232\" NOERROR qr,aa,rd 158 0.000114869s"}, {"tsUnixNs":"1782252490677962435", "service":"k8s_coredns_coredns-674b8bbfcf-q2nbc_kube-system_cefc4b9f-1170-4baa-b8e9-c82b4728730a_0", "containerId":"41468c8c5e174bb04465ac9947bf1f7a00e67ba4e2c220903aac5fdae6263a50", "stream":"stdout", "message":"[INFO] 10.244.1.2:57283 - 40666 \"A IN redis-cache.fret-test-backend.svc.cluster.local. udp 76 false 1232\" NOERROR qr,aa,rd 128 0.00025745s"}, {"tsUnixNs":"1782252490678689856", "service":"k8s_coredns_coredns-674b8bbfcf-q2nbc_kube-system_cefc4b9f-1170-4baa-b8e9-c82b4728730a_0", "containerId":"41468c8c5e174bb04465ac9947bf1f7a00e67ba4e2c220903aac5fdae6263a50", "stream":"stdout", "message":"[INFO] 10.244.1.2:36862 - 40304 \"A IN postgres-db.fret-test-backend.svc.cluster.local.fret-test-backend.svc.cluster.local. udp 112 false 1232\" NXDOMAIN qr,aa,rd 194 0.000180714s"}, {"tsUnixNs":"1782252490679004188", "service":"k8s_coredns_coredns-674b8bbfcf-q2nbc_kube-system_cefc4b9f-1170-4baa-b8e9-c82b4728730a_0", "containerId":"41468c8c5e174bb04465ac9947bf1f7a00e67ba4e2c220903aac5fdae6263a50", "stream":"stdout", "message":"[INFO] 10.244.1.2:44774 - 37184 \"AAAA IN postgres-db.fret-test-backend.svc.cluster.local.fret-test-backend.svc.cluster.local. udp 112 false 1232\" NXDOMAIN qr,aa,rd 194 0.000200738s"}, {"tsUnixNs":"1782252490680265582", "service":"k8s_coredns_coredns-674b8bbfcf-q2nbc_kube-system_cefc4b9f-1170-4baa-b8e9-c82b4728730a_0", "containerId":"41468c8c5e174bb04465ac9947bf1f7a00e67ba4e2c220903aac5fdae6263a50", "stream":"stdout", "message":"[INFO] 10.244.1.2:57804 - 15810 \"A IN postgres-db.fret-test-backend.svc.cluster.local.svc.cluster.local. udp 94 false 1232\" NXDOMAIN qr,aa,rd 176 0.000085061s"}, {"tsUnixNs":"1782252490680632881", "service":"k8s_coredns_coredns-674b8bbfcf-q2nbc_kube-system_cefc4b9f-1170-4baa-b8e9-c82b4728730a_0", "containerId":"41468c8c5e174bb04465ac9947bf1f7a00e67ba4e2c220903aac5fdae6263a50", "stream":"stdout", "message":"[INFO] 10.244.1.2:39672 - 5080 \"AAAA IN postgres-db.fret-test-backend.svc.cluster.local.svc.cluster.local. udp 94 false 1232\" NXDOMAIN qr,aa,rd 176 0.000245999s"}, {"tsUnixNs":"1782252490681336938", "service":"k8s_coredns_coredns-674b8bbfcf-q2nbc_kube-system_cefc4b9f-1170-4baa-b8e9-c82b4728730a_0", "containerId":"41468c8c5e174bb04465ac9947bf1f7a00e67ba4e2c220903aac5fdae6263a50", "stream":"stdout", "message":"[INFO] 10.244.1.2:47293 - 15357 \"A IN postgres-db.fret-test-backend.svc.cluster.local.cluster.local. udp 90 false 1232\" NXDOMAIN qr,aa,rd 172 0.000086854s"}, {"tsUnixNs":"1782252490681690209", "service":"k8s_coredns_coredns-674b8bbfcf-q2nbc_kube-system_cefc4b9f-1170-4baa-b8e9-c82b4728730a_0", "containerId":"41468c8c5e174bb04465ac9947bf1f7a00e67ba4e2c220903aac5fdae6263a50", "stream":"stdout", "message":"[INFO] 10.244.1.2:56185 - 50228 \"AAAA IN postgres-db.fret-test-backend.svc.cluster.local.cluster.local. udp 90 false 1232\" NXDOMAIN qr,aa,rd 172 0.000201692s"}, {"tsUnixNs":"1782252490682783950", "service":"k8s_coredns_coredns-674b8bbfcf-q2nbc_kube-system_cefc4b9f-1170-4baa-b8e9-c82b4728730a_0", "containerId":"41468c8c5e174bb04465ac9947bf1f7a00e67ba4e2c220903aac5fdae6263a50", "stream":"stdout", "message":"[INFO] 10.244.1.2:39885 - 37771 \"A IN postgres-db.fret-test-backend.svc.cluster.local. udp 76 false 1232\" NOERROR qr,aa,rd 128 0.000089463s"}, {"tsUnixNs":"1782252490683193302", "service":"k8s_coredns_coredns-674b8bbfcf-q2nbc_kube-system_cefc4b9f-1170-4baa-b8e9-c82b4728730a_0", "containerId":"41468c8c5e174bb04465ac9947bf1f7a00e67ba4e2c220903aac5fdae6263a50", "stream":"stdout", "message":"[INFO] 10.244.1.2:59979 - 17027 \"AAAA IN postgres-db.fret-test-backend.svc.cluster.local. udp 76 false 1232\" NOERROR qr,aa,rd 158 0.000210228s"}]}
 
 event: k8s
-data: {"seq":"5392", "nodes":[{"name":"fret-test", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252490", "action":"ADDED", "memPressure":false, "diskPressure":false, "diskTotalBytes":"20320481280", "diskAvailBytes":"14393704069"}]}
+data: {"seq":"5392", "nodes":[{"name":"fret-test", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5393", "nodes":[{"name":"fret-test-m02", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252490", "action":"ADDED", "memPressure":false, "diskPressure":false, "diskTotalBytes":"20320481280", "diskAvailBytes":"14413323228"}]}
+data: {"seq":"5393", "nodes":[{"name":"fret-test-m02", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5394", "nodes":[{"name":"fret-test-m03", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252490", "action":"ADDED", "memPressure":false, "diskPressure":false, "diskTotalBytes":"20320481280", "diskAvailBytes":"14138454498"}]}
+data: {"seq":"5394", "nodes":[{"name":"fret-test-m03", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 event: logs
 data: {"seq":"5292", "entries":[{"tsUnixNs":"1782252490813521061", "service":"2f5ecdd2f5b5", "containerId":"2f5ecdd2f5b504674b353030adb729bc992c6984457163eb6d51abaf6632d2b1", "stream":"stderr", "message":"2026/06/23 22:08:10 k8s: endpoints watch: EOF (retry in 1s)"}]}
@@ -1520,90 +1520,90 @@ event: logs
 data: {"seq":"5296", "entries":[{"tsUnixNs":"1782252491225402322", "service":"2f5ecdd2f5b5", "containerId":"2f5ecdd2f5b504674b353030adb729bc992c6984457163eb6d51abaf6632d2b1", "stream":"stderr", "message":"2026/06/23 22:08:11 k8s: pods watch: EOF (retry in 1s)"}]}
 
 event: k8s
-data: {"seq":"5395", "pods":[{"name":"fret-njnb7", "namespace":"fret-system", "node":"fret-test-m02", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"67108864", "memLimitBytes":"134217728", "tsUnix":"1782252490", "action":"ADDED", "restartCount":3}]}
+data: {"seq":"5395", "pods":[{"name":"fret-njnb7", "namespace":"fret-system", "node":"fret-test-m02", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"67108864", "memLimitBytes":"134217728", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5396", "pods":[{"name":"fret-sjgz9", "namespace":"fret-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"67108864", "memLimitBytes":"134217728", "tsUnix":"1782252490", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"5396", "pods":[{"name":"fret-sjgz9", "namespace":"fret-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"67108864", "memLimitBytes":"134217728", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5397", "pods":[{"name":"fret-vj2fm", "namespace":"fret-system", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"67108864", "memLimitBytes":"134217728", "tsUnix":"1782252490", "action":"ADDED", "restartCount":0}], "events":[{"namespace":"fret-system", "name":"fret-sjgz9", "type":"Warning", "reason":"BackOff", "message":"Back-off restarting failed container fret-sjgz9 in pod fret-sjgz9", "involvedKind":"Pod", "involvedName":"fret-sjgz9", "tsUnix":"1782252490"}]}
+data: {"seq":"5397", "pods":[{"name":"fret-vj2fm", "namespace":"fret-system", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"67108864", "memLimitBytes":"134217728", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5398", "pods":[{"name":"backend-service-6f8ddd7fd-dbzc5", "namespace":"fret-test-backend", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252490", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"5398", "pods":[{"name":"backend-service-6f8ddd7fd-dbzc5", "namespace":"fret-test-backend", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5399", "pods":[{"name":"backend-service-6f8ddd7fd-qcv77", "namespace":"fret-test-backend", "node":"fret-test-m02", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252490", "action":"ADDED", "restartCount":1}]}
+data: {"seq":"5399", "pods":[{"name":"backend-service-6f8ddd7fd-qcv77", "namespace":"fret-test-backend", "node":"fret-test-m02", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5400", "pods":[{"name":"postgres-db-766cd76c84-kgnbl", "namespace":"fret-test-backend", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"67108864", "memLimitBytes":"134217728", "tsUnix":"1782252490", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"5400", "pods":[{"name":"postgres-db-766cd76c84-kgnbl", "namespace":"fret-test-backend", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"67108864", "memLimitBytes":"134217728", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5401", "pods":[{"name":"redis-cache-7b46cb7996-5w777", "namespace":"fret-test-backend", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252490", "action":"ADDED", "restartCount":0}], "events":[{"namespace":"", "name":"fret-test-m02", "type":"Normal", "reason":"NodeReady", "message":"Node fret-test-m02 status is now: NodeReady", "involvedKind":"Node", "involvedName":"fret-test-m02", "tsUnix":"1782252488"}]}
+data: {"seq":"5401", "pods":[{"name":"redis-cache-7b46cb7996-5w777", "namespace":"fret-test-backend", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5402", "pods":[{"name":"nginx-gateway-66df78d4df-jsmx9", "namespace":"fret-test-gateway", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252490", "action":"ADDED", "restartCount":1}]}
+data: {"seq":"5402", "pods":[{"name":"nginx-gateway-66df78d4df-jsmx9", "namespace":"fret-test-gateway", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5403", "pods":[{"name":"nginx-gateway-66df78d4df-zkb9j", "namespace":"fret-test-gateway", "node":"fret-test-m02", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252490", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"5403", "pods":[{"name":"nginx-gateway-66df78d4df-zkb9j", "namespace":"fret-test-gateway", "node":"fret-test-m02", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5404", "pods":[{"name":"traffic-gen-67677d54fb-2nsbq", "namespace":"fret-test-gateway", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"25", "cpuLimitMilli":"50", "memRequestBytes":"16777216", "memLimitBytes":"33554432", "tsUnix":"1782252490", "action":"ADDED", "restartCount":0}], "events":[{"namespace":"kube-system", "name":"kube-scheduler-fret-test", "type":"Normal", "reason":"Created", "message":"Created container kube-scheduler-fret-test", "involvedKind":"Pod", "involvedName":"kube-scheduler-fret-test", "tsUnix":"1782252487"}]}
+data: {"seq":"5404", "pods":[{"name":"traffic-gen-67677d54fb-2nsbq", "namespace":"fret-test-gateway", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"25", "cpuLimitMilli":"50", "memRequestBytes":"16777216", "memLimitBytes":"33554432", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5405", "pods":[{"name":"coredns-674b8bbfcf-q2nbc", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"73400320", "memLimitBytes":"178257920", "tsUnix":"1782252490", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"5405", "pods":[{"name":"coredns-674b8bbfcf-q2nbc", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"73400320", "memLimitBytes":"178257920", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5406", "pods":[{"name":"etcd-fret-test", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"104857600", "tsUnix":"1782252490", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"5406", "pods":[{"name":"etcd-fret-test", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"104857600", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5407", "pods":[{"name":"kindnet-7grd2", "namespace":"kube-system", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"100", "cpuLimitMilli":"100", "memRequestBytes":"52428800", "memLimitBytes":"52428800", "tsUnix":"1782252490", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"5407", "pods":[{"name":"kindnet-7grd2", "namespace":"kube-system", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"100", "cpuLimitMilli":"100", "memRequestBytes":"52428800", "memLimitBytes":"52428800", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5408", "pods":[{"name":"kindnet-kttnv", "namespace":"kube-system", "node":"fret-test-m02", "phase":"Running", "cpuRequestMilli":"100", "cpuLimitMilli":"100", "memRequestBytes":"52428800", "memLimitBytes":"52428800", "tsUnix":"1782252490", "action":"ADDED", "restartCount":0}], "events":[{"namespace":"fret-test-gateway", "name":"nginx-gateway-66df78d4df-zkb9j", "type":"Normal", "reason":"Started", "message":"Started container nginx-gateway-66df78d4df-zkb9j", "involvedKind":"Pod", "involvedName":"nginx-gateway-66df78d4df-zkb9j", "tsUnix":"1782252494"}]}
+data: {"seq":"5408", "pods":[{"name":"kindnet-kttnv", "namespace":"kube-system", "node":"fret-test-m02", "phase":"Running", "cpuRequestMilli":"100", "cpuLimitMilli":"100", "memRequestBytes":"52428800", "memLimitBytes":"52428800", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5409", "pods":[{"name":"kindnet-vccnm", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "cpuLimitMilli":"100", "memRequestBytes":"52428800", "memLimitBytes":"52428800", "tsUnix":"1782252490", "action":"ADDED", "restartCount":1}], "events":[{"namespace":"", "name":"fret-test-m03", "type":"Normal", "reason":"NodeReady", "message":"Node fret-test-m03 status is now: NodeReady", "involvedKind":"Node", "involvedName":"fret-test-m03", "tsUnix":"1782252485"}]}
+data: {"seq":"5409", "pods":[{"name":"kindnet-vccnm", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "cpuLimitMilli":"100", "memRequestBytes":"52428800", "memLimitBytes":"52428800", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5410", "pods":[{"name":"kube-apiserver-fret-test", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"250", "tsUnix":"1782252490", "action":"ADDED", "restartCount":1}]}
+data: {"seq":"5410", "pods":[{"name":"kube-apiserver-fret-test", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"250", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5411", "pods":[{"name":"kube-controller-manager-fret-test", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"200", "tsUnix":"1782252490", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"5411", "pods":[{"name":"kube-controller-manager-fret-test", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"200", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5412", "pods":[{"name":"kube-proxy-chqgw", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "tsUnix":"1782252490", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"5412", "pods":[{"name":"kube-proxy-chqgw", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5413", "pods":[{"name":"kube-proxy-fw9qr", "namespace":"kube-system", "node":"fret-test-m03", "phase":"Running", "tsUnix":"1782252490", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"5413", "pods":[{"name":"kube-proxy-fw9qr", "namespace":"kube-system", "node":"fret-test-m03", "phase":"Running", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5414", "pods":[{"name":"kube-proxy-kcxlr", "namespace":"kube-system", "node":"fret-test-m02", "phase":"Running", "tsUnix":"1782252490", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"5414", "pods":[{"name":"kube-proxy-kcxlr", "namespace":"kube-system", "node":"fret-test-m02", "phase":"Running", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5415", "pods":[{"name":"kube-scheduler-fret-test", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "tsUnix":"1782252490", "action":"ADDED", "restartCount":0}], "events":[{"namespace":"", "name":"fret-test-m03", "type":"Normal", "reason":"NodeReady", "message":"Node fret-test-m03 status is now: NodeReady", "involvedKind":"Node", "involvedName":"fret-test-m03", "tsUnix":"1782252494"}, {"namespace":"", "name":"fret-test", "type":"Normal", "reason":"NodeReady", "message":"Node fret-test status is now: NodeReady", "involvedKind":"Node", "involvedName":"fret-test", "tsUnix":"1782252493"}]}
+data: {"seq":"5415", "pods":[{"name":"kube-scheduler-fret-test", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5416", "pods":[{"name":"storage-provisioner", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "tsUnix":"1782252490", "action":"ADDED", "restartCount":2}]}
+data: {"seq":"5416", "pods":[{"name":"storage-provisioner", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "tsUnix":"1782252490", "action":"ADDED"}]}
 
 : ping
 
 event: k8s
-data: {"seq":"5297", "nodes":[{"name":"fret-test", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252491", "action":"ADDED", "memPressure":false, "diskPressure":false, "diskTotalBytes":"20320481280", "diskAvailBytes":"14283407046"}]}
+data: {"seq":"5297", "nodes":[{"name":"fret-test", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252491", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5298", "nodes":[{"name":"fret-test-m02", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252491", "action":"ADDED", "memPressure":false, "diskPressure":false, "diskTotalBytes":"20320481280", "diskAvailBytes":"14101437704"}]}
+data: {"seq":"5298", "nodes":[{"name":"fret-test-m02", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252491", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5299", "nodes":[{"name":"fret-test-m03", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252491", "action":"ADDED", "memPressure":false, "diskPressure":false, "diskTotalBytes":"20320481280", "diskAvailBytes":"14007634419"}], "events":[{"namespace":"fret-system", "name":"fret-njnb7", "type":"Normal", "reason":"Scheduled", "message":"Successfully assigned fret-system/fret-njnb7 to fret-test-m02", "involvedKind":"Pod", "involvedName":"fret-njnb7", "tsUnix":"1782252496"}]}
+data: {"seq":"5299", "nodes":[{"name":"fret-test-m03", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252491", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5300", "pods":[{"name":"fret-njnb7", "namespace":"fret-system", "node":"fret-test-m02", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"67108864", "memLimitBytes":"134217728", "tsUnix":"1782252492", "action":"ADDED", "restartCount":3}]}
+data: {"seq":"5300", "pods":[{"name":"fret-njnb7", "namespace":"fret-system", "node":"fret-test-m02", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"67108864", "memLimitBytes":"134217728", "tsUnix":"1782252492", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5301", "pods":[{"name":"fret-sjgz9", "namespace":"fret-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"67108864", "memLimitBytes":"134217728", "tsUnix":"1782252492", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"5301", "pods":[{"name":"fret-sjgz9", "namespace":"fret-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"67108864", "memLimitBytes":"134217728", "tsUnix":"1782252492", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5302", "pods":[{"name":"fret-vj2fm", "namespace":"fret-system", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"67108864", "memLimitBytes":"134217728", "tsUnix":"1782252492", "action":"ADDED", "restartCount":0}], "events":[{"namespace":"kube-system", "name":"kube-scheduler-fret-test", "type":"Normal", "reason":"Created", "message":"Created container kube-scheduler-fret-test", "involvedKind":"Pod", "involvedName":"kube-scheduler-fret-test", "tsUnix":"1782252493"}, {"namespace":"", "name":"fret-test-m03", "type":"Normal", "reason":"NodeReady", "message":"Node fret-test-m03 status is now: NodeReady", "involvedKind":"Node", "involvedName":"fret-test-m03", "tsUnix":"1782252495"}]}
+data: {"seq":"5302", "pods":[{"name":"fret-vj2fm", "namespace":"fret-system", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"67108864", "memLimitBytes":"134217728", "tsUnix":"1782252492", "action":"ADDED"}]}
 
 event: logs
 data: {"seq":"13816", "entries":[{"tsUnixNs":"1782252492232104962", "service":"k8s_storage-provisioner_storage-provisioner_kube-system_76698ead-8d42-4476-9afd-d533867e5463_0", "containerId":"ddb0e7afa3daeed09eeb111cb1b83fa1d403f48224b04c5915fa095713327aff", "stream":"stderr", "message":"W0623 22:08:12.231967       1 warnings.go:70] v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"}]}
@@ -1612,61 +1612,61 @@ event: logs
 data: {"seq":"13817", "entries":[{"tsUnixNs":"1782252492246339222", "service":"k8s_storage-provisioner_storage-provisioner_kube-system_76698ead-8d42-4476-9afd-d533867e5463_0", "containerId":"ddb0e7afa3daeed09eeb111cb1b83fa1d403f48224b04c5915fa095713327aff", "stream":"stderr", "message":"W0623 22:08:12.246198       1 warnings.go:70] v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"}]}
 
 event: k8s
-data: {"seq":"5303", "pods":[{"name":"backend-service-6f8ddd7fd-dbzc5", "namespace":"fret-test-backend", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252492", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"5303", "pods":[{"name":"backend-service-6f8ddd7fd-dbzc5", "namespace":"fret-test-backend", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252492", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5304", "pods":[{"name":"backend-service-6f8ddd7fd-qcv77", "namespace":"fret-test-backend", "node":"fret-test-m02", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252492", "action":"ADDED", "restartCount":1}]}
+data: {"seq":"5304", "pods":[{"name":"backend-service-6f8ddd7fd-qcv77", "namespace":"fret-test-backend", "node":"fret-test-m02", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252492", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5305", "pods":[{"name":"postgres-db-766cd76c84-kgnbl", "namespace":"fret-test-backend", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"67108864", "memLimitBytes":"134217728", "tsUnix":"1782252492", "action":"ADDED", "restartCount":0}], "events":[{"namespace":"fret-test-backend", "name":"backend-service-6f8ddd7fd-dbzc5", "type":"Normal", "reason":"Created", "message":"Created container backend-service-6f8ddd7fd-dbzc5", "involvedKind":"Pod", "involvedName":"backend-service-6f8ddd7fd-dbzc5", "tsUnix":"1782252497"}]}
+data: {"seq":"5305", "pods":[{"name":"postgres-db-766cd76c84-kgnbl", "namespace":"fret-test-backend", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"67108864", "memLimitBytes":"134217728", "tsUnix":"1782252492", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5306", "pods":[{"name":"redis-cache-7b46cb7996-5w777", "namespace":"fret-test-backend", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252492", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"5306", "pods":[{"name":"redis-cache-7b46cb7996-5w777", "namespace":"fret-test-backend", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252492", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5307", "pods":[{"name":"nginx-gateway-66df78d4df-jsmx9", "namespace":"fret-test-gateway", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252492", "action":"ADDED", "restartCount":1}]}
+data: {"seq":"5307", "pods":[{"name":"nginx-gateway-66df78d4df-jsmx9", "namespace":"fret-test-gateway", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252492", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5308", "pods":[{"name":"nginx-gateway-66df78d4df-zkb9j", "namespace":"fret-test-gateway", "node":"fret-test-m02", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252492", "action":"ADDED", "restartCount":0}], "events":[{"namespace":"", "name":"fret-test", "type":"Normal", "reason":"NodeReady", "message":"Node fret-test status is now: NodeReady", "involvedKind":"Node", "involvedName":"fret-test", "tsUnix":"1782252496"}]}
+data: {"seq":"5308", "pods":[{"name":"nginx-gateway-66df78d4df-zkb9j", "namespace":"fret-test-gateway", "node":"fret-test-m02", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252492", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5309", "pods":[{"name":"traffic-gen-67677d54fb-2nsbq", "namespace":"fret-test-gateway", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"25", "cpuLimitMilli":"50", "memRequestBytes":"16777216", "memLimitBytes":"33554432", "tsUnix":"1782252492", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"5309", "pods":[{"name":"traffic-gen-67677d54fb-2nsbq", "namespace":"fret-test-gateway", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"25", "cpuLimitMilli":"50", "memRequestBytes":"16777216", "memLimitBytes":"33554432", "tsUnix":"1782252492", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5310", "pods":[{"name":"coredns-674b8bbfcf-q2nbc", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"73400320", "memLimitBytes":"178257920", "tsUnix":"1782252492", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"5310", "pods":[{"name":"coredns-674b8bbfcf-q2nbc", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"73400320", "memLimitBytes":"178257920", "tsUnix":"1782252492", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5311", "pods":[{"name":"etcd-fret-test", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"104857600", "tsUnix":"1782252492", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"5311", "pods":[{"name":"etcd-fret-test", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"104857600", "tsUnix":"1782252492", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5312", "pods":[{"name":"kindnet-7grd2", "namespace":"kube-system", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"100", "cpuLimitMilli":"100", "memRequestBytes":"52428800", "memLimitBytes":"52428800", "tsUnix":"1782252492", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"5312", "pods":[{"name":"kindnet-7grd2", "namespace":"kube-system", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"100", "cpuLimitMilli":"100", "memRequestBytes":"52428800", "memLimitBytes":"52428800", "tsUnix":"1782252492", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5313", "pods":[{"name":"kindnet-kttnv", "namespace":"kube-system", "node":"fret-test-m02", "phase":"Running", "cpuRequestMilli":"100", "cpuLimitMilli":"100", "memRequestBytes":"52428800", "memLimitBytes":"52428800", "tsUnix":"1782252492", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"5313", "pods":[{"name":"kindnet-kttnv", "namespace":"kube-system", "node":"fret-test-m02", "phase":"Running", "cpuRequestMilli":"100", "cpuLimitMilli":"100", "memRequestBytes":"52428800", "memLimitBytes":"52428800", "tsUnix":"1782252492", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5314", "pods":[{"name":"kindnet-vccnm", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "cpuLimitMilli":"100", "memRequestBytes":"52428800", "memLimitBytes":"52428800", "tsUnix":"1782252492", "action":"ADDED", "restartCount":1}]}
+data: {"seq":"5314", "pods":[{"name":"kindnet-vccnm", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "cpuLimitMilli":"100", "memRequestBytes":"52428800", "memLimitBytes":"52428800", "tsUnix":"1782252492", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5315", "pods":[{"name":"kube-apiserver-fret-test", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"250", "tsUnix":"1782252492", "action":"ADDED", "restartCount":1}]}
+data: {"seq":"5315", "pods":[{"name":"kube-apiserver-fret-test", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"250", "tsUnix":"1782252492", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5316", "pods":[{"name":"kube-controller-manager-fret-test", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"200", "tsUnix":"1782252492", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"5316", "pods":[{"name":"kube-controller-manager-fret-test", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"200", "tsUnix":"1782252492", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5317", "pods":[{"name":"kube-proxy-chqgw", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "tsUnix":"1782252492", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"5317", "pods":[{"name":"kube-proxy-chqgw", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "tsUnix":"1782252492", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5318", "pods":[{"name":"kube-proxy-fw9qr", "namespace":"kube-system", "node":"fret-test-m03", "phase":"Running", "tsUnix":"1782252492", "action":"ADDED", "restartCount":0}], "events":[{"namespace":"", "name":"fret-test", "type":"Normal", "reason":"NodeReady", "message":"Node fret-test status is now: NodeReady", "involvedKind":"Node", "involvedName":"fret-test", "tsUnix":"1782252490"}]}
+data: {"seq":"5318", "pods":[{"name":"kube-proxy-fw9qr", "namespace":"kube-system", "node":"fret-test-m03", "phase":"Running", "tsUnix":"1782252492", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5319", "pods":[{"name":"kube-proxy-kcxlr", "namespace":"kube-system", "node":"fret-test-m02", "phase":"Running", "tsUnix":"1782252492", "action":"ADDED", "restartCount":0}], "events":[{"namespace":"fret-system", "name":"fret-vj2fm", "type":"Warning", "reason":"Unhealthy", "message":"Liveness probe failed: HTTP probe failed with statuscode: 500", "involvedKind":"Pod", "involvedName":"fret-vj2fm", "tsUnix":"1782252488"}]}
+data: {"seq":"5319", "pods":[{"name":"kube-proxy-kcxlr", "namespace":"kube-system", "node":"fret-test-m02", "phase":"Running", "tsUnix":"1782252492", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5320", "pods":[{"name":"kube-scheduler-fret-test", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "tsUnix":"1782252492", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"5320", "pods":[{"name":"kube-scheduler-fret-test", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "tsUnix":"1782252492", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"5321", "pods":[{"name":"storage-provisioner", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "tsUnix":"1782252492", "action":"ADDED", "restartCount":2}], "events":[{"namespace":"fret-test-backend", "name":"backend-service-6f8ddd7fd-qcv77", "type":"Warning", "reason":"Unhealthy", "message":"Liveness probe failed: HTTP probe failed with statuscode: 500", "involvedKind":"Pod", "involvedName":"backend-service-6f8ddd7fd-qcv77", "tsUnix":"1782252495"}, {"namespace":"", "name":"fret-test-m02", "type":"Normal", "reason":"NodeReady", "message":"Node fret-test-m02 status is now: NodeReady", "involvedKind":"Node", "involvedName":"fret-test-m02", "tsUnix":"1782252490"}]}
+data: {"seq":"5321", "pods":[{"name":"storage-provisioner", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "tsUnix":"1782252492", "action":"ADDED"}]}
 
 event: metrics
 data: {"seq":"13818", "metrics":[{"srcService":"redis-cache", "dstService":"backend-service", "protocol":"redis", "windowStartUnix":"1782252482", "windowDurationS":"10", "requestCount":1, "errorCount":1, "latMinNs":"57341", "latMaxNs":"57341", "latSumNs":"57341"}, {"srcService":"kubelet", "dstService":"kube-dns", "protocol":"http1", "windowStartUnix":"1782252482", "windowDurationS":"10", "requestCount":2, "latMinNs":"347643", "latMaxNs":"391290", "latSumNs":"738933"}, {"srcService":"coredns-674b8bbfcf-q2nbc", "protocol":"http1", "windowStartUnix":"1782252482", "windowDurationS":"10", "requestCount":10, "latMinNs":"102275", "latMaxNs":"258398", "latSumNs":"1635117"}, {"srcService":"etcd-fret-test", "protocol":"http1", "windowStartUnix":"1782252482", "windowDurationS":"10", "requestCount":11, "latMinNs":"154340", "latMaxNs":"253410", "latSumNs":"2116361"}, {"srcService":"kubelet", "dstService":"k8s_etcd_etcd-fret-test_kube-system_ea2ac96ffaacaf0b3800245bcacd7de2_0", "protocol":"http1", "windowStartUnix":"1782252482", "windowDurationS":"10", "requestCount":11, "latMinNs":"308966", "latMaxNs":"559752", "latSumNs":"4768784"}, {"srcService":"postgres-db", "dstService":"backend-service", "protocol":"postgres", "windowStartUnix":"1782252482", "windowDurationS":"10", "requestCount":6, "errorCount":1, "latMinNs":"313263", "latMaxNs":"101903847", "latSumNs":"114092059"}]}
@@ -1723,79 +1723,79 @@ event: logs
 data: {"seq":"13830", "entries":[{"tsUnixNs":"1782252495468505272", "service":"k8s_kindnet-cni_kindnet-vccnm_kube-system_42c286e9-8a9a-4545-ad92-5ad3c503a440_0", "containerId":"90d668824742ac81af91a835362daa0774bcbdd4f4584386bb44f674cf0cfb33", "stream":"stderr", "message":"I0623 22:08:15.468299       1 main.go:297] Handling node with IPs: map[192.168.50.56:{}]"}, {"tsUnixNs":"1782252495468562583", "service":"k8s_kindnet-cni_kindnet-vccnm_kube-system_42c286e9-8a9a-4545-ad92-5ad3c503a440_0", "containerId":"90d668824742ac81af91a835362daa0774bcbdd4f4584386bb44f674cf0cfb33", "stream":"stderr", "message":"I0623 22:08:15.468344       1 main.go:301] handling current node"}, {"tsUnixNs":"1782252495468573163", "service":"k8s_kindnet-cni_kindnet-vccnm_kube-system_42c286e9-8a9a-4545-ad92-5ad3c503a440_0", "containerId":"90d668824742ac81af91a835362daa0774bcbdd4f4584386bb44f674cf0cfb33", "stream":"stderr", "message":"I0623 22:08:15.468357       1 main.go:297] Handling node with IPs: map[192.168.50.178:{}]"}, {"tsUnixNs":"1782252495468582080", "service":"k8s_kindnet-cni_kindnet-vccnm_kube-system_42c286e9-8a9a-4545-ad92-5ad3c503a440_0", "containerId":"90d668824742ac81af91a835362daa0774bcbdd4f4584386bb44f674cf0cfb33", "stream":"stderr", "message":"I0623 22:08:15.468363       1 main.go:324] Node fret-test-m02 has CIDR [10.244.1.0/24] "}, {"tsUnixNs":"1782252495468712248", "service":"k8s_kindnet-cni_kindnet-vccnm_kube-system_42c286e9-8a9a-4545-ad92-5ad3c503a440_0", "containerId":"90d668824742ac81af91a835362daa0774bcbdd4f4584386bb44f674cf0cfb33", "stream":"stderr", "message":"I0623 22:08:15.468624       1 main.go:297] Handling node with IPs: map[192.168.50.67:{}]"}, {"tsUnixNs":"1782252495468884133", "service":"k8s_kindnet-cni_kindnet-vccnm_kube-system_42c286e9-8a9a-4545-ad92-5ad3c503a440_0", "containerId":"90d668824742ac81af91a835362daa0774bcbdd4f4584386bb44f674cf0cfb33", "stream":"stderr", "message":"I0623 22:08:15.468769       1 main.go:324] Node fret-test-m03 has CIDR [10.244.2.0/24] "}]}
 
 event: k8s
-data: {"seq":"13831", "nodes":[{"name":"fret-test", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252495", "action":"ADDED", "memPressure":false, "diskPressure":false, "diskTotalBytes":"20320481280", "diskAvailBytes":"13902327088"}]}
+data: {"seq":"13831", "nodes":[{"name":"fret-test", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252495", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"13832", "nodes":[{"name":"fret-test-m02", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252495", "action":"ADDED", "memPressure":false, "diskPressure":false, "diskTotalBytes":"20320481280", "diskAvailBytes":"14115277600"}]}
+data: {"seq":"13832", "nodes":[{"name":"fret-test-m02", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252495", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"13833", "nodes":[{"name":"fret-test-m03", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252495", "action":"ADDED", "memPressure":false, "diskPressure":false, "diskTotalBytes":"20320481280", "diskAvailBytes":"14249893352"}]}
+data: {"seq":"13833", "nodes":[{"name":"fret-test-m03", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252495", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"13834", "pods":[{"name":"fret-njnb7", "namespace":"fret-system", "node":"fret-test-m02", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"67108864", "memLimitBytes":"134217728", "tsUnix":"1782252496", "action":"ADDED", "restartCount":3}], "events":[{"namespace":"fret-test-backend", "name":"redis-cache-7b46cb7996-5w777", "type":"Normal", "reason":"Started", "message":"Started container redis-cache-7b46cb7996-5w777", "involvedKind":"Pod", "involvedName":"redis-cache-7b46cb7996-5w777", "tsUnix":"1782252501"}, {"namespace":"kube-system", "name":"kindnet-vccnm", "type":"Normal", "reason":"Started", "message":"Started container kindnet-vccnm", "involvedKind":"Pod", "involvedName":"kindnet-vccnm", "tsUnix":"1782252492"}]}
+data: {"seq":"13834", "pods":[{"name":"fret-njnb7", "namespace":"fret-system", "node":"fret-test-m02", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"67108864", "memLimitBytes":"134217728", "tsUnix":"1782252496", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"13835", "pods":[{"name":"fret-sjgz9", "namespace":"fret-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"67108864", "memLimitBytes":"134217728", "tsUnix":"1782252496", "action":"ADDED", "restartCount":0}], "events":[{"namespace":"", "name":"fret-test-m03", "type":"Normal", "reason":"NodeReady", "message":"Node fret-test-m03 status is now: NodeReady", "involvedKind":"Node", "involvedName":"fret-test-m03", "tsUnix":"1782252500"}]}
+data: {"seq":"13835", "pods":[{"name":"fret-sjgz9", "namespace":"fret-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"67108864", "memLimitBytes":"134217728", "tsUnix":"1782252496", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"13836", "pods":[{"name":"fret-vj2fm", "namespace":"fret-system", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"67108864", "memLimitBytes":"134217728", "tsUnix":"1782252496", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"13836", "pods":[{"name":"fret-vj2fm", "namespace":"fret-system", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"67108864", "memLimitBytes":"134217728", "tsUnix":"1782252496", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"13837", "pods":[{"name":"backend-service-6f8ddd7fd-dbzc5", "namespace":"fret-test-backend", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252496", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"13837", "pods":[{"name":"backend-service-6f8ddd7fd-dbzc5", "namespace":"fret-test-backend", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252496", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"13838", "pods":[{"name":"backend-service-6f8ddd7fd-qcv77", "namespace":"fret-test-backend", "node":"fret-test-m02", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252496", "action":"ADDED", "restartCount":1}]}
+data: {"seq":"13838", "pods":[{"name":"backend-service-6f8ddd7fd-qcv77", "namespace":"fret-test-backend", "node":"fret-test-m02", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252496", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"13839", "pods":[{"name":"postgres-db-766cd76c84-kgnbl", "namespace":"fret-test-backend", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"67108864", "memLimitBytes":"134217728", "tsUnix":"1782252496", "action":"ADDED", "restartCount":0}], "events":[{"namespace":"", "name":"fret-test-m02", "type":"Warning", "reason":"MemoryPressure", "message":"Node fret-test-m02 status is now: NodeHasInsufficientMemory", "involvedKind":"Node", "involvedName":"fret-test-m02", "tsUnix":"1782252491"}]}
+data: {"seq":"13839", "pods":[{"name":"postgres-db-766cd76c84-kgnbl", "namespace":"fret-test-backend", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"67108864", "memLimitBytes":"134217728", "tsUnix":"1782252496", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"13840", "pods":[{"name":"redis-cache-7b46cb7996-5w777", "namespace":"fret-test-backend", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252496", "action":"ADDED", "restartCount":0}], "events":[{"namespace":"", "name":"fret-test-m03", "type":"Warning", "reason":"DiskPressure", "message":"Node fret-test-m03 status is now: NodeHasDiskPressure", "involvedKind":"Node", "involvedName":"fret-test-m03", "tsUnix":"1782252494"}, {"namespace":"kube-system", "name":"kube-proxy-fw9qr", "type":"Normal", "reason":"Pulled", "message":"Container image already present on machine", "involvedKind":"Pod", "involvedName":"kube-proxy-fw9qr", "tsUnix":"1782252498"}]}
+data: {"seq":"13840", "pods":[{"name":"redis-cache-7b46cb7996-5w777", "namespace":"fret-test-backend", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252496", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"13841", "pods":[{"name":"nginx-gateway-66df78d4df-jsmx9", "namespace":"fret-test-gateway", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252496", "action":"ADDED", "restartCount":1}]}
+data: {"seq":"13841", "pods":[{"name":"nginx-gateway-66df78d4df-jsmx9", "namespace":"fret-test-gateway", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252496", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"13842", "pods":[{"name":"nginx-gateway-66df78d4df-zkb9j", "namespace":"fret-test-gateway", "node":"fret-test-m02", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252496", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"13842", "pods":[{"name":"nginx-gateway-66df78d4df-zkb9j", "namespace":"fret-test-gateway", "node":"fret-test-m02", "phase":"Running", "cpuRequestMilli":"50", "cpuLimitMilli":"100", "memRequestBytes":"33554432", "memLimitBytes":"67108864", "tsUnix":"1782252496", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"13843", "pods":[{"name":"traffic-gen-67677d54fb-2nsbq", "namespace":"fret-test-gateway", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"25", "cpuLimitMilli":"50", "memRequestBytes":"16777216", "memLimitBytes":"33554432", "tsUnix":"1782252496", "action":"ADDED", "restartCount":0}], "events":[{"namespace":"", "name":"fret-test-m03", "type":"Normal", "reason":"NodeReady", "message":"Node fret-test-m03 status is now: NodeReady", "involvedKind":"Node", "involvedName":"fret-test-m03", "tsUnix":"1782252497"}, {"namespace":"fret-system", "name":"fret-sjgz9", "type":"Normal", "reason":"Scheduled", "message":"Successfully assigned fret-system/fret-sjgz9 to fret-test", "involvedKind":"Pod", "involvedName":"fret-sjgz9", "tsUnix":"1782252491"}]}
+data: {"seq":"13843", "pods":[{"name":"traffic-gen-67677d54fb-2nsbq", "namespace":"fret-test-gateway", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"25", "cpuLimitMilli":"50", "memRequestBytes":"16777216", "memLimitBytes":"33554432", "tsUnix":"1782252496", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"13844", "pods":[{"name":"coredns-674b8bbfcf-q2nbc", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"73400320", "memLimitBytes":"178257920", "tsUnix":"1782252496", "action":"ADDED", "restartCount":0}], "events":[{"namespace":"fret-test-backend", "name":"backend-service-6f8ddd7fd-dbzc5", "type":"Warning", "reason":"BackOff", "message":"Back-off restarting failed container backend-service-6f8ddd7fd-dbzc5 in pod backend-service-6f8ddd7fd-dbzc5", "involvedKind":"Pod", "involvedName":"backend-service-6f8ddd7fd-dbzc5", "tsUnix":"1782252499"}]}
+data: {"seq":"13844", "pods":[{"name":"coredns-674b8bbfcf-q2nbc", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"73400320", "memLimitBytes":"178257920", "tsUnix":"1782252496", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"13845", "pods":[{"name":"etcd-fret-test", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"104857600", "tsUnix":"1782252496", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"13845", "pods":[{"name":"etcd-fret-test", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "memRequestBytes":"104857600", "tsUnix":"1782252496", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"13846", "pods":[{"name":"kindnet-7grd2", "namespace":"kube-system", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"100", "cpuLimitMilli":"100", "memRequestBytes":"52428800", "memLimitBytes":"52428800", "tsUnix":"1782252496", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"13846", "pods":[{"name":"kindnet-7grd2", "namespace":"kube-system", "node":"fret-test-m03", "phase":"Running", "cpuRequestMilli":"100", "cpuLimitMilli":"100", "memRequestBytes":"52428800", "memLimitBytes":"52428800", "tsUnix":"1782252496", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"13847", "pods":[{"name":"kindnet-kttnv", "namespace":"kube-system", "node":"fret-test-m02", "phase":"Running", "cpuRequestMilli":"100", "cpuLimitMilli":"100", "memRequestBytes":"52428800", "memLimitBytes":"52428800", "tsUnix":"1782252496", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"13847", "pods":[{"name":"kindnet-kttnv", "namespace":"kube-system", "node":"fret-test-m02", "phase":"Running", "cpuRequestMilli":"100", "cpuLimitMilli":"100", "memRequestBytes":"52428800", "memLimitBytes":"52428800", "tsUnix":"1782252496", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"13848", "pods":[{"name":"kindnet-vccnm", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "cpuLimitMilli":"100", "memRequestBytes":"52428800", "memLimitBytes":"52428800", "tsUnix":"1782252496", "action":"ADDED", "restartCount":1}], "events":[{"namespace":"fret-test-gateway", "name":"nginx-gateway-66df78d4df-zkb9j", "type":"Normal", "reason":"Scheduled", "message":"Successfully assigned fret-test-gateway/nginx-gateway-66df78d4df-zkb9j to fret-test-m02", "involvedKind":"Pod", "involvedName":"nginx-gateway-66df78d4df-zkb9j", "tsUnix":"1782252498"}]}
+data: {"seq":"13848", "pods":[{"name":"kindnet-vccnm", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "cpuLimitMilli":"100", "memRequestBytes":"52428800", "memLimitBytes":"52428800", "tsUnix":"1782252496", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"13849", "pods":[{"name":"kube-apiserver-fret-test", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"250", "tsUnix":"1782252496", "action":"ADDED", "restartCount":1}]}
+data: {"seq":"13849", "pods":[{"name":"kube-apiserver-fret-test", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"250", "tsUnix":"1782252496", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"13850", "pods":[{"name":"kube-controller-manager-fret-test", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"200", "tsUnix":"1782252496", "action":"ADDED", "restartCount":0}], "events":[{"namespace":"fret-test-backend", "name":"backend-service-6f8ddd7fd-dbzc5", "type":"Warning", "reason":"FailedScheduling", "message":"0/3 nodes are available: 3 Insufficient cpu.", "involvedKind":"Pod", "involvedName":"backend-service-6f8ddd7fd-dbzc5", "tsUnix":"1782252491"}, {"namespace":"fret-test-gateway", "name":"nginx-gateway-66df78d4df-jsmx9", "type":"Warning", "reason":"Unhealthy", "message":"Liveness probe failed: HTTP probe failed with statuscode: 500", "involvedKind":"Pod", "involvedName":"nginx-gateway-66df78d4df-jsmx9", "tsUnix":"1782252498"}]}
+data: {"seq":"13850", "pods":[{"name":"kube-controller-manager-fret-test", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"200", "tsUnix":"1782252496", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"13851", "pods":[{"name":"kube-proxy-chqgw", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "tsUnix":"1782252496", "action":"ADDED", "restartCount":0}], "events":[{"namespace":"fret-system", "name":"fret-sjgz9", "type":"Warning", "reason":"BackOff", "message":"Back-off restarting failed container fret-sjgz9 in pod fret-sjgz9", "involvedKind":"Pod", "involvedName":"fret-sjgz9", "tsUnix":"1782252497"}]}
+data: {"seq":"13851", "pods":[{"name":"kube-proxy-chqgw", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "tsUnix":"1782252496", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"13852", "pods":[{"name":"kube-proxy-fw9qr", "namespace":"kube-system", "node":"fret-test-m03", "phase":"Running", "tsUnix":"1782252496", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"13852", "pods":[{"name":"kube-proxy-fw9qr", "namespace":"kube-system", "node":"fret-test-m03", "phase":"Running", "tsUnix":"1782252496", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"13853", "pods":[{"name":"kube-proxy-kcxlr", "namespace":"kube-system", "node":"fret-test-m02", "phase":"Running", "tsUnix":"1782252496", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"13853", "pods":[{"name":"kube-proxy-kcxlr", "namespace":"kube-system", "node":"fret-test-m02", "phase":"Running", "tsUnix":"1782252496", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"13854", "pods":[{"name":"kube-scheduler-fret-test", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "tsUnix":"1782252496", "action":"ADDED", "restartCount":0}]}
+data: {"seq":"13854", "pods":[{"name":"kube-scheduler-fret-test", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "cpuRequestMilli":"100", "tsUnix":"1782252496", "action":"ADDED"}]}
 
 event: k8s
-data: {"seq":"13855", "pods":[{"name":"storage-provisioner", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "tsUnix":"1782252496", "action":"ADDED", "restartCount":2}]}
+data: {"seq":"13855", "pods":[{"name":"storage-provisioner", "namespace":"kube-system", "node":"fret-test", "phase":"Running", "tsUnix":"1782252496", "action":"ADDED"}]}
 
 event: logs
 data: {"seq":"13856", "entries":[{"tsUnixNs":"1782252496276012454", "service":"k8s_storage-provisioner_storage-provisioner_kube-system_76698ead-8d42-4476-9afd-d533867e5463_0", "containerId":"ddb0e7afa3daeed09eeb111cb1b83fa1d403f48224b04c5915fa095713327aff", "stream":"stderr", "message":"W0623 22:08:16.275814       1 warnings.go:70] v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"}]}
@@ -2682,13 +2682,13 @@ event: logs
 data: {"seq":"5375", "entries":[{"tsUnixNs":"1782252561585132991", "service":"k8s_nginx_nginx-gateway-66df78d4df-jsmx9_fret-test-gateway_00ff48d1-9b6c-48d3-9729-ef8e4228bcb6_0", "containerId":"f0d6bc4445dca9d92584a35c27cff20e4d46d4a1ce9f41eb765ffef1a78e446d", "stream":"stdout", "message":"10.244.2.4 - - [23/Jun/2026:22:09:21 +0000] \"GET / HTTP/1.1\" 200 2 \"-\" \"curl/8.20.0\""}]}
 
 event: k8s
-data: {"seq":"5376", "nodes":[{"name":"fret-test", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252562", "action":"MODIFIED", "memPressure":false, "diskPressure":false, "diskTotalBytes":"20320481280", "diskAvailBytes":"13928519402"}]}
+data: {"seq":"5376", "nodes":[{"name":"fret-test", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252562", "action":"MODIFIED"}]}
 
 event: k8s
-data: {"seq":"5463", "nodes":[{"name":"fret-test", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252562", "action":"MODIFIED", "memPressure":false, "diskPressure":false, "diskTotalBytes":"20320481280", "diskAvailBytes":"13928519402"}], "events":[{"namespace":"kube-system", "name":"kindnet-vccnm", "type":"Warning", "reason":"FailedScheduling", "message":"0/3 nodes are available: 3 Insufficient cpu.", "involvedKind":"Pod", "involvedName":"kindnet-vccnm", "tsUnix":"1782252565"}]}
+data: {"seq":"5463", "nodes":[{"name":"fret-test", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252562", "action":"MODIFIED"}]}
 
 event: k8s
-data: {"seq":"14052", "nodes":[{"name":"fret-test", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252562", "action":"MODIFIED", "memPressure":false, "diskPressure":false, "diskTotalBytes":"20320481280", "diskAvailBytes":"13928519402"}]}
+data: {"seq":"14052", "nodes":[{"name":"fret-test", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252562", "action":"MODIFIED"}]}
 
 event: metrics
 data: {"seq":"14053", "metrics":[{"srcService":"redis-cache", "dstService":"backend-service", "protocol":"redis", "windowStartUnix":"1782252552", "windowDurationS":"10", "requestCount":3, "errorCount":3, "latMinNs":"66883", "latMaxNs":"76932", "latSumNs":"217242"}, {"srcService":"kubelet", "dstService":"kube-dns", "protocol":"http1", "windowStartUnix":"1782252552", "windowDurationS":"10", "requestCount":2, "latMinNs":"352962", "latMaxNs":"353349", "latSumNs":"706311"}, {"srcService":"coredns-674b8bbfcf-q2nbc", "protocol":"http1", "windowStartUnix":"1782252552", "windowDurationS":"10", "requestCount":10, "latMinNs":"163454", "latMaxNs":"426969", "latSumNs":"2604071"}, {"srcService":"etcd-fret-test", "protocol":"http1", "windowStartUnix":"1782252552", "windowDurationS":"10", "requestCount":11, "latMinNs":"166821", "latMaxNs":"507304", "latSumNs":"3245543"}, {"srcService":"kubelet", "dstService":"k8s_etcd_etcd-fret-test_kube-system_ea2ac96ffaacaf0b3800245bcacd7de2_0", "protocol":"http1", "windowStartUnix":"1782252552", "windowDurationS":"10", "requestCount":11, "latMinNs":"316232", "latMaxNs":"4995844", "latSumNs":"12215298"}, {"srcService":"postgres-db", "dstService":"backend-service", "protocol":"postgres", "windowStartUnix":"1782252552", "windowDurationS":"10", "requestCount":6, "latMinNs":"428465", "latMaxNs":"13562094", "latSumNs":"24397005"}]}
@@ -4049,7 +4049,7 @@ event: logs
 data: {"seq":"14346", "entries":[{"tsUnixNs":"1782252665473315992", "service":"k8s_kindnet-cni_kindnet-vccnm_kube-system_42c286e9-8a9a-4545-ad92-5ad3c503a440_0", "containerId":"90d668824742ac81af91a835362daa0774bcbdd4f4584386bb44f674cf0cfb33", "stream":"stderr", "message":"I0623 22:11:05.473156       1 main.go:297] Handling node with IPs: map[192.168.50.67:{}]"}, {"tsUnixNs":"1782252665473370886", "service":"k8s_kindnet-cni_kindnet-vccnm_kube-system_42c286e9-8a9a-4545-ad92-5ad3c503a440_0", "containerId":"90d668824742ac81af91a835362daa0774bcbdd4f4584386bb44f674cf0cfb33", "stream":"stderr", "message":"I0623 22:11:05.473194       1 main.go:324] Node fret-test-m03 has CIDR [10.244.2.0/24] "}, {"tsUnixNs":"1782252665473515678", "service":"k8s_kindnet-cni_kindnet-vccnm_kube-system_42c286e9-8a9a-4545-ad92-5ad3c503a440_0", "containerId":"90d668824742ac81af91a835362daa0774bcbdd4f4584386bb44f674cf0cfb33", "stream":"stderr", "message":"I0623 22:11:05.473413       1 main.go:297] Handling node with IPs: map[192.168.50.56:{}]"}, {"tsUnixNs":"1782252665473533342", "service":"k8s_kindnet-cni_kindnet-vccnm_kube-system_42c286e9-8a9a-4545-ad92-5ad3c503a440_0", "containerId":"90d668824742ac81af91a835362daa0774bcbdd4f4584386bb44f674cf0cfb33", "stream":"stderr", "message":"I0623 22:11:05.473428       1 main.go:301] handling current node"}, {"tsUnixNs":"1782252665473538924", "service":"k8s_kindnet-cni_kindnet-vccnm_kube-system_42c286e9-8a9a-4545-ad92-5ad3c503a440_0", "containerId":"90d668824742ac81af91a835362daa0774bcbdd4f4584386bb44f674cf0cfb33", "stream":"stderr", "message":"I0623 22:11:05.473439       1 main.go:297] Handling node with IPs: map[192.168.50.178:{}]"}, {"tsUnixNs":"1782252665473557575", "service":"k8s_kindnet-cni_kindnet-vccnm_kube-system_42c286e9-8a9a-4545-ad92-5ad3c503a440_0", "containerId":"90d668824742ac81af91a835362daa0774bcbdd4f4584386bb44f674cf0cfb33", "stream":"stderr", "message":"I0623 22:11:05.473444       1 main.go:324] Node fret-test-m02 has CIDR [10.244.1.0/24] "}]}
 
 event: k8s
-data: {"seq":"5447", "nodes":[{"name":"fret-test-m02", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252666", "action":"MODIFIED", "memPressure":false, "diskPressure":false, "diskTotalBytes":"20320481280", "diskAvailBytes":"13527413420"}]}
+data: {"seq":"5447", "nodes":[{"name":"fret-test-m02", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252666", "action":"MODIFIED"}]}
 
 event: logs
 data: {"seq":"14347", "entries":[{"tsUnixNs":"1782252666054837775", "service":"k8s_storage-provisioner_storage-provisioner_kube-system_76698ead-8d42-4476-9afd-d533867e5463_0", "containerId":"ddb0e7afa3daeed09eeb111cb1b83fa1d403f48224b04c5915fa095713327aff", "stream":"stderr", "message":"W0623 22:11:06.054671       1 warnings.go:70] v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"}]}
@@ -4058,10 +4058,10 @@ event: logs
 data: {"seq":"14348", "entries":[{"tsUnixNs":"1782252666061541222", "service":"k8s_storage-provisioner_storage-provisioner_kube-system_76698ead-8d42-4476-9afd-d533867e5463_0", "containerId":"ddb0e7afa3daeed09eeb111cb1b83fa1d403f48224b04c5915fa095713327aff", "stream":"stderr", "message":"W0623 22:11:06.061370       1 warnings.go:70] v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice"}]}
 
 event: k8s
-data: {"seq":"14349", "nodes":[{"name":"fret-test-m02", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252666", "action":"MODIFIED", "memPressure":false, "diskPressure":false, "diskTotalBytes":"20320481280", "diskAvailBytes":"13527413420"}], "events":[{"namespace":"fret-test-backend", "name":"redis-cache-7b46cb7996-5w777", "type":"Warning", "reason":"BackOff", "message":"Back-off restarting failed container redis-cache-7b46cb7996-5w777 in pod redis-cache-7b46cb7996-5w777", "involvedKind":"Pod", "involvedName":"redis-cache-7b46cb7996-5w777", "tsUnix":"1782252670"}]}
+data: {"seq":"14349", "nodes":[{"name":"fret-test-m02", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252666", "action":"MODIFIED"}]}
 
 event: k8s
-data: {"seq":"5548", "nodes":[{"name":"fret-test-m02", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252666", "action":"MODIFIED", "memPressure":false, "diskPressure":false, "diskTotalBytes":"20320481280", "diskAvailBytes":"13527413420"}]}
+data: {"seq":"5548", "nodes":[{"name":"fret-test-m02", "ready":true, "cpuCapacityMilli":"2000", "memCapacityBytes":"2663825408", "cpuAllocatableMilli":"2000", "memAllocatableBytes":"2663825408", "tsUnix":"1782252666", "action":"MODIFIED"}]}
 
 event: logs
 data: {"seq":"14350", "entries":[{"tsUnixNs":"1782252666965004575", "service":"k8s_coredns_coredns-674b8bbfcf-q2nbc_kube-system_cefc4b9f-1170-4baa-b8e9-c82b4728730a_0", "containerId":"41468c8c5e174bb04465ac9947bf1f7a00e67ba4e2c220903aac5fdae6263a50", "stream":"stdout", "message":"[INFO] 10.244.2.4:34741 - 8029 \"AAAA IN nginx-gateway.fret-test-gateway.svc.cluster.local. udp 67 false 512\" NOERROR qr,aa,rd 160 0.000343279s"}, {"tsUnixNs":"1782252666965519425", "service":"k8s_coredns_coredns-674b8bbfcf-q2nbc_kube-system_cefc4b9f-1170-4baa-b8e9-c82b4728730a_0", "containerId":"41468c8c5e174bb04465ac9947bf1f7a00e67ba4e2c220903aac5fdae6263a50", "stream":"stdout", "message":"[INFO] 10.244.2.4:41855 - 35722 \"A IN nginx-gateway.fret-test-gateway.svc.cluster.local. udp 67 false 512\" NOERROR qr,aa,rd 132 0.000272413s"}, {"tsUnixNs":"1782252666969013006", "service":"k8s_coredns_coredns-674b8bbfcf-q2nbc_kube-system_cefc4b9f-1170-4baa-b8e9-c82b4728730a_0", "containerId":"41468c8c5e174bb04465ac9947bf1f7a00e67ba4e2c220903aac5fdae6263a50", "stream":"stdout", "message":"[INFO] 10.244.1.2:48321 - 34872 \"A IN postgres-db.fret-test-backend.svc.cluster.local.fret-test-backend.svc.cluster.local. udp 112 false 1232\" NXDOMAIN qr,aa,rd 194 0.000455151s"}, {"tsUnixNs":"1782252666969552307", "service":"k8s_coredns_coredns-674b8bbfcf-q2nbc_kube-system_cefc4b9f-1170-4baa-b8e9-c82b4728730a_0", "containerId":"41468c8c5e174bb04465ac9947bf1f7a00e67ba4e2c220903aac5fdae6263a50", "stream":"stdout", "message":"[INFO] 10.244.1.2:51134 - 33993 \"AAAA IN postgres-db.fret-test-backend.svc.cluster.local.fret-test-backend.svc.cluster.local. udp 112 false 1232\" NXDOMAIN qr,aa,rd 194 0.000653421s"}]}
