@@ -1,13 +1,7 @@
-# Compress big infra into one md file
+straw is expanding!
 
-### Compression Rates
-- Logs: 3,774 lines -> 37 patterns (99.0% reduction)
-- Topology: 746 edges -> 11 flows (98.5% reduction)
-- Metrics: 507 samples -> 15 elevated (97.0% reduction)
-- **Total LLM Token Reduction: 276k Tokens (Raw) -> 1100 Tokens (with straw) (99.5% reduction)**
+first, i started this as a stateless, token compression engine for raw k8s infra telemetry. you can still find that version written in go [here](https://github.com/ilyesarf/straw/tree/go).
 
-### Test
+now, straw is being built to be a **universal** harness that makes any reasoning model **continuously learn** and get better at any domain.
 
-```bash
-$ go run main.go stream.txt
-```
+we will make sure our code stays as simple and as lean as we can. any ai written code will be flagged at the beginning of the file.
