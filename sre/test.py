@@ -10,5 +10,5 @@ body = json.load(urllib.request.urlopen(req))
 out = body['output']
 
 print('resp status :', body['status'])
-print('log_clusters:%d  topology:%d  metrics:%d  pod_summary:%s  nodes:%d' % (len(out['log_clusters']), len(out['topology']), len(out['metrics']), out['pod_summary'], len(out['nodes'])))
-
+for l in out['log_clusters']:
+    print(l)

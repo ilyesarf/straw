@@ -276,13 +276,13 @@ def aggregate_topology(raw):
 
 @domain.reducer("metrics")
 def filter_metrics(raw, config):
-    thresholds = config.get("thresholds") or THRESHOLDS  
+    thresholds = config.get("thresholds") if config else THRESHOLDS  
 
     peaks = {} 
     for s in raw["metrics"]:
         if s["value"] == 0:
             continue
-        
+
         threshold = thresholds.get(s["metric"])
         if threshold is None:
             continue
