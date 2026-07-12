@@ -9,8 +9,10 @@ class Domain:
         self.reducers = {}
         self.miscs = {}
 
+        self.tools = {}
+
         self.app = FastAPI(title=f"Straw Harness: {self.name}")
-        self._setup_misc_funcs()
+        self._setup_routes()
 
     def reducer(self, name):
         def decorator(func):
@@ -25,8 +27,15 @@ class Domain:
             return func
         
         return decorator
-    
-    def _setup_misc_funcs(self):
+
+    def tool(self, name):
+        def decorator(func):
+            self.tools[name] = func
+            return func
+
+        return decorator
+     
+    def _setup_routes(self):
         @self.app.post("/reduce")
         async def post_reduce(request: Request):
             raw_state = await request.json()
@@ -55,6 +64,21 @@ class Domain:
                 return {"status": "error", "reason": f"{misc_func}{inspect.signature(func)}: {e}"}
 
             return {"status": f"{misc_func}'ed", "output": func(*bound.args, **bound.kwargs)}
+        
+        @self.app.post("/tool/{tool_name}")
+        async def post_tools(tool_name, request: Request):
+            if tool_name not in self.tools:
+                return {"status": "error", "reason": f"{tool_name} tool is not implemented"}
+        
+            tool_func = self.tools[tool_name]
+            body = await request.json()
+
+            try: 
+                bound = inspect.signature(tool_func).bind(**body)
+            except TypeError as e:
+                return {"status": "error", "reason": f"{tool_name}{inspect.signature(tool_func)}: {e}"}
+
+            return {"status": f"{tool_func}'ed", "output": tool_func(*bound.args, **bound.kwargs)}
 
     
     def run(self, port: int = 7777):
