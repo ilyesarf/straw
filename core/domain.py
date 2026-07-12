@@ -62,4 +62,4 @@ class Domain:
         print(f"Registered reducers: {list(self.reducers.keys())}")
         print(f"Registered miscs: {list(self.miscs.keys())}")
 
-        uvicorn.run(self.app, host="127.0.0.1", port=port)
+        uvicorn.run(self.app, host="0.0.0.0", port=port)

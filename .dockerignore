@@ -1,0 +1,5 @@
+.git/
+__pycache__/
+*.pyc
+stream.txt
+stream.txt.bak
