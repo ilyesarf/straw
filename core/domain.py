@@ -1,7 +1,9 @@
+import hmac
 import inspect
+import os
 
 import uvicorn
-from fastapi import FastAPI, Request
+from fastapi import Depends, FastAPI, Header, HTTPException, Request
 from .types import *
 
 class Domain:
@@ -14,8 +16,16 @@ class Domain:
 
         self.tools_reg = [] #tool registry
 
-        self.app = FastAPI(title=f"Straw Harness: {self.name}")
+        #self.system_prompt = ""
+        
+        self.auth_token = os.getenv("STRAW_TOKEN", "")
+        self.app = FastAPI(title=f"Straw Harness: {self.name}",
+                           dependencies=[Depends(self._auth)])
         self._setup_routes()
+
+    def _auth(self, authorization: str = Header(default="")):
+        if not hmac.compare_digest(authorization.removeprefix("Bearer ").strip(), self.auth_token):
+            raise HTTPException(status_code=401, detail="bad or missing service token")
 
     def reducer(self, name):
         def decorator(func):
@@ -106,6 +116,10 @@ class Domain:
 
     
     def run(self, port: int = 7777):
+        # Fail closed: the harness reaches the domain's data and trusts its caller.
+        if not self.auth_token:
+            raise SystemExit("STRAW_TOKEN is required")
+
         print(f"Booting straw harness for domain: {self.name}")
         print(f"Registered reducers: {list(self.reducers.keys())}")
         print(f"Registered miscs: {list(self.miscs.keys())}")
