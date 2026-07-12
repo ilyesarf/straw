@@ -1,13 +1,17 @@
 import hmac
 import inspect
+import json
 import os
 
 import uvicorn
 from fastapi import Depends, FastAPI, Header, HTTPException, Request
+from fastapi.responses import StreamingResponse
+
+from .agent import Agent, execute_tool
 from .types import *
 
 class Domain:
-    def __init__(self, name, db_conn=None):
+    def __init__(self, name, seed_prompt, db_conn=None):
         self.name = name
         self.db_conn = db_conn
 
@@ -16,7 +20,7 @@ class Domain:
 
         self.tools_reg = [] #tool registry
 
-        #self.system_prompt = ""
+        self.system_prompt = seed_prompt
         
         self.auth_token = os.getenv("STRAW_TOKEN", "")
         self.app = FastAPI(title=f"Straw Harness: {self.name}",
@@ -58,8 +62,6 @@ class Domain:
 
         return decorator 
     
-    def _check_tool(self, name) -> Tool | None:
-        return next((t for t in self.tools_reg if t.name==name), None)
     
     def _setup_routes(self):
         @self.app.post("/reduce")
@@ -93,28 +95,42 @@ class Domain:
         
         @self.app.post("/tool/{tool_name}")
         async def post_tools(tool_name, request: Request):
-            tool = self._check_tool(tool_name)
+            tool = Agent.find_tool(self.tools_reg, tool_name)
             if not tool:
                 return {"status": "error", "reason": f"{tool_name} tool is not implemented"}
-        
+
             body = await request.json()
             args, ctx = body.get("args", {}), body.get("ctx", {})
-            ctx["db"] = self.db_conn
 
-            sig = inspect.signature(tool.func)
-            if "ctx" in sig.parameters:
-                    args["ctx"] = ctx
+            return {"status": f"{tool.name}'ed",
+                    "output": execute_tool(tool, args, self._with_db(ctx))}
 
-            try: 
-                bound = sig.bind(**args) #skip ctx when required
-            
-            except TypeError as e:
-                return {"status": "error", "reason": f"{tool_name}{inspect.signature(tool.func)}: {e}"}
-            
+        @self.app.post("/agent")
+        async def post_agent(request: Request):
+            body = await request.json()
+            llm = body.get("llm", {})
 
-            return {"status": f"{tool.name}'ed", "output": tool.func(**bound.arguments)}
+            agent = Agent(
+                model=llm.get("model", ""),
+                api_url=llm.get("api_url", ""),
+                api_key=llm.get("api_key", ""),
+                tools_reg=self.tools_reg,
+                system_prompt=self.system_prompt,
+            )
+            steps = agent.run(body.get("messages", []), self._with_db(body.get("ctx", {})))
 
-    
+            # Reasoning Steps stream as they happen
+            def stream():
+                for step in steps:
+                    yield f"data: {json.dumps(step)}\n\n"
+
+            return StreamingResponse(stream(), media_type="text/event-stream")
+
+    def _with_db(self, ctx: dict) -> dict:
+        ctx["db"] = self.db_conn
+        return ctx
+
+
     def run(self, port: int = 7777):
         # Fail closed: the harness reaches the domain's data and trusts its caller.
         if not self.auth_token:
