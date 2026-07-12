@@ -10,7 +10,7 @@ class Domain:
         self.miscs = {}
 
         self.app = FastAPI(title=f"Straw Harness: {self.name}")
-        self._setup_routes()
+        self._setup_misc_funcs()
 
     def reducer(self, name):
         def decorator(func):
@@ -26,7 +26,7 @@ class Domain:
         
         return decorator
     
-    def _setup_routes(self):
+    def _setup_misc_funcs(self):
         @self.app.post("/reduce")
         async def post_reduce(request: Request):
             raw_state = await request.json()
@@ -40,9 +40,26 @@ class Domain:
                     reduced_snapshot[name] = func(raw_state)
 
             return {"status": "reduced", "output": reduced_snapshot}
+        
+        @self.app.post("/misc/{misc_func}")
+        async def post_miscs(misc_func, request: Request):
+            if misc_func not in self.miscs:
+                return {"status": "error", "reason": f"{misc_func} function is not implemented"}
+
+            func = self.miscs[misc_func]
+            body = await request.json()
+
+            try:
+                bound = inspect.signature(func).bind(**body)
+            except TypeError as e:
+                return {"status": "error", "reason": f"{misc_func}{inspect.signature(func)}: {e}"}
+
+            return {"status": f"{misc_func}'ed", "output": func(*bound.args, **bound.kwargs)}
+
     
     def run(self, port: int = 7777):
         print(f"Booting straw harness for domain: {self.name}")
         print(f"Registered reducers: {list(self.reducers.keys())}")
+        print(f"Registered miscs: {list(self.miscs.keys())}")
 
         uvicorn.run(self.app, host="127.0.0.1", port=port)
