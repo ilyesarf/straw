@@ -3,10 +3,14 @@ from dataclasses import dataclass, field
 from typing import Callable, Any, Dict
 import inspect
 
-JSON_TYPES = {t: t.__name__ if t.__name__ != "module" else "object" for t in (str, int, float, bool, list, dict)}
-JSON_TYPES[int] = "integer"
-JSON_TYPES[float] = "number"
-JSON_TYPES[bool] = "boolean"
+JSON_TYPES = {
+    str: "string",
+    int: "integer",
+    float: "number",
+    bool: "boolean",
+    list: "array",
+    dict: "object"
+}
     
 @dataclass
 class Tool:
