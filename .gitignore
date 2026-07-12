@@ -2,3 +2,4 @@ docs/
 bin/
 *.swp
 __pycache__/
+sre/
