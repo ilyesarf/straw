@@ -117,10 +117,14 @@ class Domain:
             body = await request.json()
             llm = body.get("llm", {})
             incoming = body.get("messages", [])
+            persist = body.get("persist", True)
 
-            chat_id = body.get("chat_id") or self.chats.create(_title(incoming))
-            self.chats.append(chat_id, incoming)
-            history = self.chats.load(chat_id)
+            if persist:
+                chat_id = body.get("chat_id") or self.chats.create(_title(incoming))
+                self.chats.append(chat_id, incoming)
+                history = self.chats.load(chat_id)
+            else:
+                chat_id, history = None, incoming
 
             agent = Agent(
                 model=llm.get("model", ""),
@@ -133,10 +137,12 @@ class Domain:
 
             # Reasoning Steps stream as they happen; "final" is persisted, not streamed
             def stream():
-                yield f"data: {json.dumps({'type': 'chat', 'chat_id': chat_id})}\n\n"
+                if chat_id:
+                    yield f"data: {json.dumps({'type': 'chat', 'chat_id': chat_id})}\n\n"
                 for step in steps:
                     if step["type"] == "final":
-                        self.chats.append(chat_id, step["messages"])
+                        if chat_id:
+                            self.chats.append(chat_id, step["messages"])
                         continue
                     yield f"data: {json.dumps(step)}\n\n"
 
