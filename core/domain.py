@@ -8,12 +8,19 @@ from fastapi import Depends, FastAPI, Header, HTTPException, Request
 from fastapi.responses import StreamingResponse
 
 from .agent import Agent, execute_tool
+from .chats import Chats
 from .types import *
+
+
+def _title(messages: list) -> str:
+    return next((m.get("content", "") for m in messages if m.get("role") == "user"), "")
+
 
 class Domain:
     def __init__(self, name, seed_prompt, db_conn=None):
         self.name = name
         self.db_conn = db_conn
+        self.chats = Chats()
 
         self.reducers = {}
         self.miscs = {}
@@ -109,6 +116,11 @@ class Domain:
         async def post_agent(request: Request):
             body = await request.json()
             llm = body.get("llm", {})
+            incoming = body.get("messages", [])
+
+            chat_id = body.get("chat_id") or self.chats.create(_title(incoming))
+            self.chats.append(chat_id, incoming)
+            history = self.chats.load(chat_id)
 
             agent = Agent(
                 model=llm.get("model", ""),
@@ -117,14 +129,26 @@ class Domain:
                 tools_reg=self.tools_reg,
                 system_prompt=self.system_prompt,
             )
-            steps = agent.run(body.get("messages", []), self._with_db(body.get("ctx", {})))
+            steps = agent.run(history, self._with_db(body.get("ctx", {})))
 
-            # Reasoning Steps stream as they happen
+            # Reasoning Steps stream as they happen; "final" is persisted, not streamed
             def stream():
+                yield f"data: {json.dumps({'type': 'chat', 'chat_id': chat_id})}\n\n"
                 for step in steps:
+                    if step["type"] == "final":
+                        self.chats.append(chat_id, step["messages"])
+                        continue
                     yield f"data: {json.dumps(step)}\n\n"
 
             return StreamingResponse(stream(), media_type="text/event-stream")
+
+        @self.app.get("/chats")
+        async def get_chats():
+            return self.chats.list()
+
+        @self.app.get("/chats/{chat_id}")
+        async def get_chat(chat_id: str):
+            return self.chats.load(chat_id)
 
     def _with_db(self, ctx: dict) -> dict:
         ctx["db"] = self.db_conn

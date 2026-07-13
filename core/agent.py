@@ -9,7 +9,6 @@ from .types import Tool
 MAX_STEPS = 8            # ReAct iterations before the loop is forced to conclude
 MAX_TOOL_CALLS = 2       # per turn: a model that asks for eight tools at once burns
                          # the whole budget in two steps
-MAX_HISTORY = 12         # messages of prior conversation kept
 MAX_EMPTIES = 2          # empty returns before a tool is cut off
 LLM_TIMEOUT = 180        # seconds; a hung provider must fail, not hang the request
 
@@ -84,7 +83,9 @@ class Agent:
         # check if system_prompt func or str 
         prompt = self.system_prompt() if callable(self.system_prompt) else self.system_prompt
 
-        messages = [{"role": "system", "content": prompt}] + list(messages)[-MAX_HISTORY:]
+        # ponytail: full replay, no cap — long tool-heavy chats can exceed the context window
+        messages = [{"role": "system", "content": prompt}] + list(messages)
+        base = len(messages)  # turns generated below get persisted by the caller
         empties = {}
 
         for _ in range(max_steps): #main loop
@@ -99,6 +100,7 @@ class Agent:
 
             if not calls:
                 yield {"type": "answer", "content": message.get("content", ""), "converged": True}
+                yield {"type": "final", "messages": messages[base:]}
                 return
 
             if message.get("content"):
@@ -115,6 +117,8 @@ class Agent:
                 })
 
         yield from self.synthesize(messages)
+        yield {"type": "final",
+               "messages": [m for m in messages[base:] if m.get("content") != BUDGET_PROMPT]}
 
     def run_tool_call(self, call: dict, ctx: dict, messages: list, empties: dict):
         name = call["function"]["name"]
