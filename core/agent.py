@@ -22,7 +22,6 @@ BUDGET_PROMPT = (
     "give the user your best conclusion now as a concise, factual answer."
 )
 
-
 def is_empty_result(observation: str) -> bool:
     observation = observation.strip()
     return (observation in ("", "[]", "null", "{}")
