@@ -71,6 +71,31 @@ class Agent:
             url += "/v1"
         return url + "/chat/completions"
 
+    @staticmethod
+    def compact(history) -> str: #v1, dumb compact: keep the prompt, the tool calls and the answer, drop tool output
+        results = {m["tool_call_id"]: m["content"] for m in history if m["role"] == "tool"}
+
+        compact_h = []
+        turn = None
+        for m in history:
+            if m["role"] == "user":
+                #a user message opens a turn: whatever came before is done, answered or not
+                turn = {"prompt": m["content"], "steps": [], "answer": ""}
+                compact_h.append(turn)
+
+            elif m["role"] == "assistant" and turn:
+                if m.get("tool_calls"):
+                    for call in m["tool_calls"]:
+                        out = results.get(call["id"], "")
+                        if out.startswith("error:") or "returned empty results" in out or is_empty_result(out):
+                            continue #skip empty or skipped tools
+                        fn = call["function"]
+                        turn["steps"].append(f'{fn["name"]}({fn["arguments"]})')
+                else:
+                    turn["answer"] = m["content"]
+
+        return json.dumps(compact_h)
+
     def call_llm(self, messages: list, with_tools: bool) -> tuple:  # (message, finish_reason)
         body = {"model": self.model, "messages": messages, "stream": False}
         if with_tools:
@@ -105,7 +130,6 @@ class Agent:
         # check if system_prompt func or str 
         prompt = self.system_prompt() if callable(self.system_prompt) else self.system_prompt
 
-        # ponytail: full replay, no cap — long tool-heavy chats can exceed the context window
         messages = [{"role": "system", "content": prompt}] + list(messages)
         base = len(messages)  # turns generated below get persisted by the caller
         empties = {}

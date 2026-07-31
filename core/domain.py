@@ -156,6 +156,10 @@ class Domain:
         async def get_chat(chat_id: str):
             return self.chats.load(chat_id)
 
+        @self.app.get("/compact/{chat_id}")
+        async def get_compact_chat(chat_id: str):
+            return Agent.compact(self.chats.load(chat_id))
+
     def _with_db(self, ctx: dict) -> dict:
         ctx["db"] = self.db_conn
         return ctx
