@@ -79,7 +79,6 @@ class Agent:
         turn = None
         for m in history:
             if m["role"] == "user":
-                #a user message opens a turn: whatever came before is done, answered or not
                 turn = {"prompt": m["content"], "steps": [], "answer": ""}
                 compact_h.append(turn)
 
@@ -93,7 +92,7 @@ class Agent:
                         turn["steps"].append(f'{fn["name"]}({fn["arguments"]})')
                 else:
                     turn["answer"] = m["content"]
-
+        
         return json.dumps(compact_h)
 
     def call_llm(self, messages: list, with_tools: bool) -> tuple:  # (message, finish_reason)

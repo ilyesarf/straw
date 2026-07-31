@@ -133,6 +133,11 @@ class Domain:
                 tools_reg=self.tools_reg,
                 system_prompt=self.system_prompt,
             )
+
+            prior, current = history[:-len(incoming)], history[-len(incoming):]
+            if prior: #earlier turns ride along as a digest, raw tool output stays out
+                history = [{"role": "user", "content": Agent.compact(prior)}] + current
+
             steps = agent.run(history, self._with_db(body.get("ctx", {})))
 
             # Reasoning Steps stream as they happen; "final" is persisted, not streamed
