@@ -93,7 +93,7 @@ class Agent:
                 else:
                     turn["answer"] = m["content"]
         
-        return json.dumps(compact_h)
+        return compact_h
 
     def call_llm(self, messages: list, with_tools: bool) -> tuple:  # (message, finish_reason)
         body = {"model": self.model, "messages": messages, "stream": False}

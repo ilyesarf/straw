@@ -27,6 +27,8 @@ class Domain:
 
         self.tools_reg = [] #tool registry
 
+        self._compact_cache = {} # chat_id -> [n_compacted, digest_list]; incremental compact
+
         self.system_prompt = seed_prompt
         
         self.auth_token = os.getenv("STRAW_TOKEN", "")
@@ -136,7 +138,8 @@ class Domain:
 
             prior, current = history[:-len(incoming)], history[-len(incoming):]
             if prior: #earlier turns ride along as a digest, raw tool output stays out
-                history = [{"role": "user", "content": Agent.compact(prior)}] + current
+                digest = self._digest(chat_id, prior)
+                history = [{"role": "user", "content": json.dumps(digest)}] + current
 
             steps = agent.run(history, self._with_db(body.get("ctx", {})))
 
@@ -163,11 +166,31 @@ class Domain:
 
         @self.app.get("/compact/{chat_id}")
         async def get_compact_chat(chat_id: str):
-            return Agent.compact(self.chats.load(chat_id))
+            return json.dumps(Agent.compact(self.chats.load(chat_id)))
 
     def _with_db(self, ctx: dict) -> dict:
         ctx["db"] = self.db_conn
         return ctx
+
+    def _digest(self, chat_id, prior):
+        # Incremental compact: reuse the cached digest and only compact the
+        # new turn(s) appended since. prior is always turn-aligned (history
+        # minus the current incoming turn), so slicing prior[cached_n:] yields
+        # whole turns whose tool calls + results travel together.
+        n = len(prior)
+        if not n:
+            return []
+        if chat_id is None:
+            return Agent.compact(prior)
+        cached = self._compact_cache.get(chat_id)
+        if cached and cached[0] == n:
+            return cached[1]
+        if cached and cached[0] < n:
+            digest = cached[1] + Agent.compact(prior[cached[0]:])
+        else: # miss or stale (prior shrank): recompute from scratch
+            digest = Agent.compact(prior)
+        self._compact_cache[chat_id] = [n, digest]
+        return digest
 
 
     def run(self, port: int = 7777):
